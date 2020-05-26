@@ -9,13 +9,13 @@ const Index = () => (
         <h1 className="mb-20 text-2xl font-medium text-center text-gray-900 sm:text-3xl title-font">
           Seminarios de Lenguajes de Programación
           <br className="hidden sm:block" />
-          <h3 className="text-lg sm:text-xl">
+          <span className="text-lg sm:text-xl">
             Fuente en markdown
             {' '}
             <a href="https://github.com/alexfertel/reports" className="text-blue-500">
               aquí.
             </a>
-          </h3>
+          </span>
         </h1>
         <div className="flex flex-wrap -mx-4 -mt-4 -mb-10 sm:-m-4">
           <div className="flex p-4 mb-6 md:w-1/3 md:mb-0">
