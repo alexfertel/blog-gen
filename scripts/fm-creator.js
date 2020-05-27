@@ -5,11 +5,8 @@ const matter = require('gray-matter');
 const postsFolder = '../_posts';
 
 const removeFrontmatter = fContent => {
-  const { content } = matter(fContent);
-  return content;
+  return matter(fContent).content;
 };
-
-// const
 
 // Frontmatter Creator
 fs.readdir(postsFolder, (err, files) => {
