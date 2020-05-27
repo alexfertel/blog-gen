@@ -5,6 +5,8 @@ import Head from 'next/head';
 // import { getPostBySlug, getAllPosts } from '../../lib/api';
 import markdownToHtml from '../../lib/markdownToHtml';
 
+export default function Post({ post, morePosts, preview }) { return null; } 
+
 // export default function Post({ post, morePosts, preview }) {
 //   const router = useRouter();
 //   if (!router.isFallback && !post?.slug) {
