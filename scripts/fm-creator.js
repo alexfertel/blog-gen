@@ -38,6 +38,7 @@ fs.readdir(postsFolder, (err, files) => {
       )}---\n${newData}`;
       fs.writeFile(path.join(postsFolder, fName), newFileContent, wErr => {
         if (wErr) throw wErr;
+        console.log(`Created frontmatter for ${fName}`);
       });
     });
   });
