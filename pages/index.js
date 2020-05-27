@@ -1,31 +1,21 @@
 import React from 'react';
+import { getIcon } from '../icons/utils';
 // import Layout from '../components/layout';
 // import { getAllPosts } from '../lib/api';
 
-const ReportSummary = ({ title, description, lang }) => (
-  <div className="p-4 xl:w-1/3 md:w-1/2">
-    <div className="bg-white p-6 border border-gray-300 rounded-lg">
-      <div className="inline-flex items-center justify-center w-10 h-10 mb-4 text-blue-500 bg-blue-100 rounded-full">
-        {lang}
-        {/* <svg
-          fill="none"
-          stroke="currentColor"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          className="w-6 h-6"
-          viewBox="0 0 24 24"
-        >
-          <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-        </svg> */}
+const ReportSummary = ({ title, description, lang }) => {
+  const Icon = getIcon(lang);
+  return (
+    <div className="p-4 xl:w-1/3 md:w-1/2">
+      <div className="p-6 bg-white border border-gray-300 rounded-lg">
+        <div className="inline-flex items-center justify-center w-10 h-10 mb-4 text-blue-500 bg-blue-100 rounded-full">
+          <Icon className="w-6 h-6" />
+        </div>
+        <h2 className="mb-2 text-lg font-medium text-gray-900 title-font">{title}</h2>
+        <p className="text-base leading-relaxed">{description}</p>
       </div>
-      <h2 className="mb-2 text-lg font-medium text-gray-900 title-font">{title}</h2>
-      <p className="text-base leading-relaxed">
-        {description}
-      </p>
     </div>
-  </div>
-);
+)};
 
 const Index = () => (
   <div className="container max-w-6xl min-h-screen mx-auto">
@@ -43,8 +33,15 @@ const Index = () => (
             </a>
           </p>
         </div>
-        <div className="flex flex-wrap -m-4 mt-20">
-          {[1,2,3,4,5,6].map((i) => <ReportSummary key={i} title="Some title" description="Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm." lang="C#" />)}
+        <div className="flex flex-wrap mt-20 -m-4">
+          {['csharp', 'ruby', 'javascript', 'haskell', 'python', 'cpp', 'golang', 'fsharp'].map(lang => (
+            <ReportSummary
+              key={lang}
+              title="Some title"
+              description="Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm."
+              lang={lang}
+            />
+          ))}
         </div>
       </div>
     </section>
