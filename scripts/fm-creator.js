@@ -23,6 +23,7 @@ fs.readdir(postsFolder, (err, files) => {
         title: 'Title goes here',
         id: fName,
         description: 'Description goes here',
+        lang: 'Language goes here',
         url: 'URL goes here',
       };
 
