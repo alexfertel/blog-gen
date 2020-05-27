@@ -13,6 +13,7 @@ fs.readdir(postFolder, (err, files) => {
       const frontmatter = {
         title: 'Title goes here',
         id: 'Id goes here',
+        description: 'Description goes here',
         url: path.join('./_posts', f),
       };
 
