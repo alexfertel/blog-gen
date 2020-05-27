@@ -8,7 +8,7 @@ const Index = () => (
       <div className="container px-5 py-24 mx-auto">
         <h1 className="mb-20 text-2xl font-medium text-center text-gray-900 sm:text-3xl title-font">
           Seminarios de Lenguajes de Programación
-          <br className="hidden sm:block" />
+          <br />
           <span className="text-lg sm:text-xl">
             Fuente en markdown
             {' '}
