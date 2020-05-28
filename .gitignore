@@ -74,3 +74,5 @@ yarn-error.log
 report*
 
 .next
+
+cypress/integration/examples

@@ -5,8 +5,8 @@
     "allowImportExportEverywhere": false,
     "codeFrame": false
   },
-  "extends": ["airbnb", "prettier"],
-  "plugins": ["react", "prettier"],
+  "extends": ["airbnb", "prettier", "plugin:cypress/recommended"],
+  "plugins": ["react", "prettier", "cypress"],
   "env": { "browser": true, "jest": true },
   "rules": {
     "no-plusplus": 0,
