@@ -3,7 +3,7 @@ import Meta from './meta';
 
 export default function Layout({ children }) {
   return (
-    <div className="antialiased bg-gray-100 text-gray-800 font-quicksand">
+    <div className="antialiased text-gray-800 bg-gray-100 font-quicksand">
       <Meta />
       <main>{children}</main>
     </div>

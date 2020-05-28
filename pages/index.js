@@ -7,7 +7,7 @@ const ReportSummary = ({ title, description, lang }) => {
   const Icon = getIcon(lang);
   return (
     <div className="p-4 xl:w-1/3 md:w-1/2">
-      <div className="p-6 bg-white border border-gray-300 rounded-lg">
+      <div className="p-6 transition-shadow duration-300 bg-white rounded-lg shadow-sm hover:shadow-md">
         <div className="inline-flex items-center justify-center w-10 h-10 mb-4 text-blue-500 bg-blue-100 rounded-full">
           <Icon className="w-6 h-6" />
         </div>
@@ -50,7 +50,7 @@ const Index = () => (
               </svg>
             </div>
             <input
-              className="absolute w-full py-3 pl-10 pr-4 font-medium text-gray-800 placeholder-gray-500 bg-gray-200 border border-transparent rounded-lg focus:bg-white focus:border-gray-800 hover:border-gray-400 focus:outline-none"
+              className="absolute w-full py-3 pl-10 pr-4 font-medium text-gray-800 placeholder-gray-500 transition-all duration-300 bg-gray-200 border border-transparent rounded-lg shadow-sm focus:bg-white focus:border-gray-800 hover:border-gray-400 focus:outline-none"
               placeholder="Intenta buscar seminarios (Título, contenido, etc.)"
               type="text"
             />
