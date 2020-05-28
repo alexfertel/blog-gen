@@ -15,7 +15,8 @@ const ReportSummary = ({ title, description, lang }) => {
         <p className="text-base leading-relaxed">{description}</p>
       </div>
     </div>
-)};
+  );
+};
 
 const Index = () => (
   <div className="container max-w-6xl min-h-screen mx-auto">
@@ -28,12 +29,34 @@ const Index = () => (
           <p className="w-full text-base leading-relaxed lg:w-1/2">
             Fuente en markdown
             {' '}
-            <a href="https://github.com/alexfertel/reports" className="text-blue-500">
+            <a href="https://github.com/alexfertel/reports" className="text-blue-500 focus:outline-none focus:text-blue-700 focus:underline hover:underline">
               aquí.
             </a>
           </p>
         </div>
-        <div className="flex flex-wrap mt-20 -m-4">
+        <div className="flex justify-center mt-8">
+          <div className="relative flex items-center w-full h-12 max-w-3xl">
+            <div className="absolute inset-y-0 left-0 z-10 flex items-center ml-3">
+              <svg
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                className="w-5 h-5 text-gray-500"
+              >
+                <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+            <input
+              className="absolute w-full py-3 pl-10 pr-4 font-medium text-gray-800 placeholder-gray-500 bg-gray-200 border border-transparent rounded-lg focus:bg-white focus:border-gray-800 hover:border-gray-400 focus:outline-none"
+              placeholder="Intenta buscar seminarios (Título, contenido, etc.)"
+              type="text"
+            />
+          </div>
+        </div>
+        <div className="flex flex-wrap mt-10 -m-4">
           {['csharp', 'ruby', 'javascript', 'haskell', 'python', 'cpp', 'golang', 'fsharp'].map(lang => (
             <ReportSummary
               key={lang}
