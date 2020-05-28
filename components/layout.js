@@ -1,16 +1,11 @@
-import Alert from '../components/alert'
-import Footer from '../components/footer'
-import Meta from '../components/meta'
+import React from 'react';
+import Meta from './meta';
 
-export default function Layout({ preview, children }) {
+export default function Layout({ children }) {
   return (
-    <>
+    <div className="antialiased text-gray-800 bg-gray-100 font-quicksand">
       <Meta />
-      <div className="min-h-screen">
-        <Alert preview={preview} />
-        <main>{children}</main>
-      </div>
-      <Footer />
-    </>
-  )
+      <main>{children}</main>
+    </div>
+  );
 }
