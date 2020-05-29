@@ -1,3 +1,11 @@
+---
+title: Title goes here
+id: Seminario_12.md
+description: Description goes here
+lang: Language goes here
+url: URL goes here
+---
+
 # Seminarios de C# _(Segunda Parte)_
 
 Los requerimientos de cada ejercicio del seminario serán expuestos desde el punto de vista práctico y teórico; es decir, para su exposición, cada equipo se basará en el caso práctico en cuestión para introducir y explicar el elemento teórico requerido. La exposición no es una mera enunciación de código. Preguntas como: _¿Por qué?_, _¿Basándose en qué?_, _¿Cómo se logra esto en el lenguaje `X`?_ entre otras, deben hacerse.

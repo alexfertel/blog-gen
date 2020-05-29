@@ -1,3 +1,11 @@
+---
+title: Title goes here
+id: Seminario_21.md
+description: Description goes here
+lang: Language goes here
+url: URL goes here
+---
+
 # Seminarios de Lenguajes Funcionales
 
 Los requerimientos de cada ejercicio del seminario serán expuestos 

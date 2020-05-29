@@ -1,3 +1,11 @@
+---
+title: Title goes here
+id: Seminario_C++17.md
+description: Description goes here
+lang: Language goes here
+url: URL goes here
+---
+
 # Seminarios C y C++
 
 Los requerimientos de cada ejercicio del seminario serán expuestos desde el punto de vista práctico y teórico; es decir, para su exposición, cada equipo se basará 
