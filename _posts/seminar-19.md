@@ -1,3 +1,11 @@
+---
+title: Title goes here
+id: 19
+description: Description goes here
+lang: Language goes here
+url: URL goes here
+---
+
 # Seminarios de Lenguajes Dinámicos II
 
 Los requerimientos de cada ejercicio del seminario serán expuestos 
