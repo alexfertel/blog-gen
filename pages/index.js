@@ -1,24 +1,26 @@
 import React from 'react';
+import Link from 'next/link';
 import { getIcon } from '../icons/utils';
-// import Layout from '../components/layout';
-// import { getAllPosts } from '../lib/api';
+import { getAllPosts } from '../lib/api';
 
-const ReportSummary = ({ title, description, lang }) => {
+const ReportSummary = ({ report: { title, description, lang, url } }) => {
   const Icon = getIcon(lang);
   return (
     <div className="p-4 xl:w-1/3 md:w-1/2">
-      <div className="p-6 transition-shadow duration-300 bg-white rounded-lg shadow-sm hover:shadow-md">
-        <div className="inline-flex items-center justify-center w-10 h-10 mb-4 text-blue-500 bg-blue-100 rounded-full">
-          <Icon className="w-6 h-6" />
+      <Link href={`/posts/${url}`}>
+        <div className="p-6 transition-shadow duration-300 bg-white rounded-lg shadow-sm cursor-pointer hover:shadow-md">
+          <div className="inline-flex items-center justify-center w-10 h-10 mb-4 text-blue-500 bg-blue-100 rounded-full">
+            <Icon className="w-6 h-6" />
+          </div>
+          <h2 className="mb-2 text-lg font-medium text-gray-900 title-font">{title}</h2>
+          <p className="text-base leading-relaxed">{description}</p>
         </div>
-        <h2 className="mb-2 text-lg font-medium text-gray-900 title-font">{title}</h2>
-        <p className="text-base leading-relaxed">{description}</p>
-      </div>
+      </Link>
     </div>
   );
 };
 
-const Index = () => (
+const Index = ({ posts }) => (
   <div className="container max-w-6xl min-h-screen mx-auto">
     <section className="text-gray-700 body-font">
       <div className="container px-5 py-24 mx-auto">
@@ -27,9 +29,11 @@ const Index = () => (
             Seminarios de Lenguajes de Programación
           </h1>
           <p className="w-full text-base leading-relaxed lg:w-1/2">
-            Fuente en markdown
-            {' '}
-            <a href="https://github.com/alexfertel/reports" className="text-blue-500 focus:outline-none focus:text-blue-700 focus:underline hover:underline">
+            {'Fuente en markdown '}
+            <a
+              href="https://github.com/alexfertel/reports"
+              className="text-blue-500 focus:outline-none focus:text-blue-700 focus:underline hover:underline"
+            >
               aquí.
             </a>
           </p>
@@ -57,13 +61,8 @@ const Index = () => (
           </div>
         </div>
         <div className="flex flex-wrap mt-10 -m-4">
-          {['csharp', 'ruby', 'javascript', 'haskell', 'python', 'cpp', 'golang', 'fsharp'].map(lang => (
-            <ReportSummary
-              key={lang}
-              title="Some title"
-              description="Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm."
-              lang={lang}
-            />
+          {posts.map(post => (
+            <ReportSummary key={post.url} report={post} />
           ))}
         </div>
       </div>
@@ -71,12 +70,11 @@ const Index = () => (
   </div>
 );
 
-// export async function getStaticProps() {
-//   // const allPosts = getAllPosts(['title', 'date', 'slug', 'author', 'coverImage', 'excerpt']);
-//   const allPosts = [];
-//   return {
-//     props: { allPosts },
-//   };
-// }
+export async function getStaticProps() {
+  const posts = getAllPosts();
+  return {
+    props: { posts },
+  };
+}
 
 export default Index;
