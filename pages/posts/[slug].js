@@ -1,8 +1,19 @@
+/* eslint-disable react/no-danger */
 import React from 'react';
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 import { getPostBySlug, getAllPosts } from '../../lib/api';
 import markdownToHtml from '../../lib/markdownToHtml';
+import Layout from '../../components/postLayout';
+import mdStyles from '../../styles/md.module.css';
+
+const PostContent = ({ post: { title, content } }) => (
+  <Layout>
+    <h2 className="py-10 text-3xl font-semibold text-center text-gray-800">{/* {title} */}</h2>
+    {/* Report Head */}
+    <div className={mdStyles.markdown} dangerouslySetInnerHTML={{ __html: content }} />
+  </Layout>
+);
 
 export default function Post({ post }) {
   const router = useRouter();
@@ -11,7 +22,7 @@ export default function Post({ post }) {
     return <ErrorPage statusCode={404} />;
   }
 
-  return router.isFallback ? <p>Loading…</p> : <p>Sup</p>;
+  return router.isFallback ? <p>Loading…</p> : <PostContent post={post} />;
 }
 
 export const getStaticPaths = async () => ({
