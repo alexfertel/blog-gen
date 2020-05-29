@@ -1,6 +1,6 @@
 ---
 title: Title goes here
-id: Seminario_21.md
+id: 21
 description: Description goes here
 lang: Language goes here
 url: URL goes here

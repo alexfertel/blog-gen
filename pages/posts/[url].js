@@ -4,9 +4,10 @@ import ErrorPage from 'next/error';
 import { getPostBySlug, getAllPosts } from '../../lib/api';
 import markdownToHtml from '../../lib/markdownToHtml';
 
-export default function Post({ post, morePosts, preview }) {
+export default function Post({ post }) {
   const router = useRouter();
 
+  console.log(post)
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
@@ -15,7 +16,8 @@ export default function Post({ post, morePosts, preview }) {
 }
 
 export async function getStaticProps({ params }) {
-  const post = getPostBySlug(params.slug, ['title', 'date', 'slug', 'author', 'content', 'ogImage', 'coverImage']);
+  console.log(params)
+  const post = getPostBySlug(params.slug);
   const content = await markdownToHtml(post.content || '');
 
   return {
@@ -29,16 +31,18 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts(['slug']);
+  const posts = getAllPosts();
 
+  console.log(posts.map(post => ({...post, content: ''})));
+  
   return {
-    paths: posts.map(post => {
-      return {
-        params: {
-          slug: post.slug,
-        },
-      };
-    }),
+    paths: posts.map(post => ({
+      params: {
+        slug: post.slug,
+        url: post.url
+      },
+    })),
+
     fallback: false,
   };
 }
