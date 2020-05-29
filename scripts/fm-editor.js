@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
 
-const postsFolder = '../_posts';
+const postsFolder = '_posts';
 
 const checkIfErrored = err => {
   if (err) throw err;
@@ -32,7 +32,7 @@ fs.readdir(postsFolder, (dirReadingError, files) => {
         const frontMatter = Object.entries(newFrontMatterData).reduce((acc, [k, v]) => `${acc}${k}: ${v}\n`, '');
 
         const fileBody = matter(data).content;
-        const newFileContent = `---\n${frontMatter}---\n${fileBody}`;
+        const newFileContent = `---\n${frontMatter}---\n\n${fileBody}`;
 
         fs.writeFile(path.join(postsFolder, filename), newFileContent, checkIfErrored);
       });
