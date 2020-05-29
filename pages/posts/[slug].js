@@ -7,7 +7,6 @@ import markdownToHtml from '../../lib/markdownToHtml';
 export default function Post({ post }) {
   const router = useRouter();
 
-  console.log(post)
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
@@ -15,11 +14,9 @@ export default function Post({ post }) {
   return router.isFallback ? <p>Loading…</p> : <p>Sup</p>;
 }
 
-export async function getStaticProps({ params }) {
-  console.log(params)
-  const post = getPostBySlug(params.slug);
+export const getStaticProps = async ({ params }) => {
+  const post = getPostBySlug(`${params.slug}.md`);
   const content = await markdownToHtml(post.content || '');
-
   return {
     props: {
       post: {
@@ -28,21 +25,14 @@ export async function getStaticProps({ params }) {
       },
     },
   };
-}
+};
 
-export async function getStaticPaths() {
-  const posts = getAllPosts();
+export const getStaticPaths = async () => ({
+  paths: getAllPosts().map(post => ({
+    params: {
+      slug: post.url,
+    },
+  })),
 
-  console.log(posts.map(post => ({...post, content: ''})));
-  
-  return {
-    paths: posts.map(post => ({
-      params: {
-        slug: post.slug,
-        url: post.url
-      },
-    })),
-
-    fallback: false,
-  };
-}
+  fallback: false,
+});
