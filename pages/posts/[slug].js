@@ -14,6 +14,16 @@ export default function Post({ post }) {
   return router.isFallback ? <p>Loading…</p> : <p>Sup</p>;
 }
 
+export const getStaticPaths = async () => ({
+  paths: getAllPosts().map(post => ({
+    params: {
+      slug: post.url,
+    },
+  })),
+
+  fallback: false,
+});
+
 export const getStaticProps = async ({ params }) => {
   const post = getPostBySlug(`${params.slug}.md`);
   const content = await markdownToHtml(post.content || '');
@@ -26,13 +36,3 @@ export const getStaticProps = async ({ params }) => {
     },
   };
 };
-
-export const getStaticPaths = async () => ({
-  paths: getAllPosts().map(post => ({
-    params: {
-      slug: post.url,
-    },
-  })),
-
-  fallback: false,
-});
