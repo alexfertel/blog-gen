@@ -14,17 +14,15 @@ url: seminar-21
 4. Explique en qué consisten los siguientes aspectos,
 provea ejemplos, explicaciones, citas y comparaciones entre lenguajes,
 puede apoyarse en cualquier lenguaje de programación:
-
-    - Funciones puras.
-    - Funciones de primera clase.
-    - Evaluación Perezosa.
-    - Inmutabilidad.
-    - Transparencia Referencial.
-    - Catamorfismos y Anamorfismos (*folds and unfolds*).
-    - *Currying*.
-    - Funciones de orden superior.
-    - Programación orientada a expresiones.
-    - Tipos Algebraicos.
-
+   - Funciones puras.
+   - Funciones de primera clase.
+   - Evaluación Perezosa.
+   - Inmutabilidad.
+   - Transparencia Referencial.
+   - Catamorfismos y Anamorfismos (*folds and unfolds*).
+   - *Currying*.
+   - Funciones de orden superior.
+   - Programación orientada a expresiones.
+   - Tipos Algebraicos.
 5. ¿Qué significa que un lenguaje funcional sea puro? ¿Es `F#` puro? ¿Qué otro lenguaje funcional sí lo es?
 

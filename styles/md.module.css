@@ -38,7 +38,6 @@
   hyphens: auto;
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
-  margin-top: 1rem;
 }
 
 .markdown a:not([class]) {
@@ -95,18 +94,24 @@
   position: relative;
 }
 
-.markdown ol .markdown ul {
-  margin-top: 16px;
-  margin-bottom: 16px;
-  padding-inline-start: 24px;
-}
-
 .markdown ol {
   list-style: decimal;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 .markdown ul {
   list-style-type: disc;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.markdown ol ol {
+  padding-left: 24px;
+}
+
+.markdown ol ul {
+  padding-left: 24px;
 }
 
 .markdown blockquote {
