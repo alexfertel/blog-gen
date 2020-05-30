@@ -9,7 +9,7 @@ import ReportHead from '../../components/ReportHead'
 
 const ReportPage = ({ post: { title, content } }) => (
   <Layout>
-    <h2 className="py-10 text-3xl font-semibold text-center text-gray-800">{title}</h2>
+    <h2 className="text-3xl font-semibold text-center text-gray-800">{title}</h2>
     <ReportHead />
     <div dangerouslySetInnerHTML={{ __html: content }} />
   </Layout>

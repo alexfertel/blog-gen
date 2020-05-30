@@ -132,6 +132,10 @@
   text-align: center;
 }
 
+.markdown ol ol {
+  list-style-type: lower-roman;
+}
+
 .markdown nav ol {
   counter-reset: item;
   padding-left: 2rem;

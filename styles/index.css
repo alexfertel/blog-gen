@@ -1,6 +1,15 @@
 @tailwind base;
 
 /* Write your own custom base styles here */
+ol {
+  @apply list-decimal;
+  @apply m-auto pl-6;
+}
+
+ul {
+  @apply list-disc;
+  @apply m-auto pl-6;
+}
 
 /* Start purging... */
 @tailwind components;
