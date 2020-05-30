@@ -5,8 +5,8 @@
     "allowImportExportEverywhere": false,
     "codeFrame": false
   },
-  "extends": ["airbnb", "prettier"],
-  "plugins": ["react", "prettier"],
+  "extends": ["airbnb", "prettier", "plugin:cypress/recommended"],
+  "plugins": ["react", "prettier", "cypress"],
   "env": { "browser": true, "jest": true },
   "rules": {
     "no-plusplus": 0,
@@ -25,6 +25,7 @@
     "import/prefer-default-export": 0,
     "react/prop-types": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "react/state-in-constructor": 0
+    "react/state-in-constructor": 0,
+    "spaced-comment": "off"
   }
 }

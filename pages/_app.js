@@ -2,7 +2,8 @@
 /* eslint-disable react/react-in-jsx-scope */
 import 'typeface-quicksand';
 import '../styles/index.css';
-import Layout from '../components/layout';
+import '../styles/highlight.css';
+import Layout from '../components/Layout';
 
 export default function MyApp({ Component, pageProps }) {
   return (

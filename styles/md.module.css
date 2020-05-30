@@ -1,0 +1,237 @@
+.markdown body,
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown p,
+.markdown ul[class],
+.markdown ol[class],
+.markdown li,
+.markdown figure,
+.markdown figcaption,
+.markdown dl,
+.markdown dd {
+  margin: 0;
+}
+
+.markdown html {
+  font-size: 1rem;
+  scroll-behavior: smooth;
+}
+
+.markdown body {
+  line-height: 1.8;
+  max-width: 80ch;
+  min-height: 100vh;
+  overflow-x: hidden;
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+  counter-reset: theorem;
+  counter-reset: definition;
+  color: hsl(0, 5%, 10%);
+  background-color: hsl(210, 20%, 98%);
+  text-rendering: optimizeLegibility;
+}
+
+.markdown p {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  margin-top: 1rem;
+}
+
+.markdown a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+.markdown a,
+.markdown a:visited {
+  color: #a00;
+}
+
+.markdown a:focus {
+  outline-offset: 2px;
+  outline: 2px solid hsl(220, 90%, 52%);
+}
+
+.markdown img {
+  max-width: 100%;
+  display: block;
+}
+
+.markdown input,
+.markdown button,
+.markdown textarea,
+.markdown select {
+  font: inherit;
+}
+
+.markdown textarea {
+  width: 100%;
+}
+
+.markdown article > * + * {
+  margin-top: 1em;
+}
+
+.markdown code,
+.markdown pre,
+.markdown kbd {
+  font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+
+.markdown pre {
+  max-width: 100%;
+  overflow: auto;
+  border-radius: 4px;
+  background: hsl(210, 28%, 93%);
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.markdown pre code {
+  font-size: 95%;
+  position: relative;
+}
+
+.markdown ol .markdown ul {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  padding-inline-start: 24px;
+}
+
+.markdown ol {
+  list-style: decimal;
+}
+
+.markdown ul {
+  list-style-type: disc;
+}
+
+.markdown blockquote {
+  padding: 16px 28px;
+}
+
+.markdown kbd {
+  background: hsl(210, 5%, 100%);
+  border: 1px solid hsl(210, 5%, 70%);
+  border-radius: 2px;
+  padding: 2px 4px;
+  font-size: 75%;
+}
+
+.markdown table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+.markdown th,
+.markdown td {
+  text-align: left;
+  padding: 0.5rem;
+}
+
+.markdown td {
+  border-bottom: 1px solid hsl(0, 0%, 85%);
+}
+
+.markdown thead th {
+  border-bottom: 2px solid hsl(0, 0%, 70%);
+}
+
+.markdown tfoot th {
+  border-top: 2px solid hsl(0, 0%, 70%);
+}
+
+.markdown h1:first-child {
+  text-align: center;
+}
+
+.markdown ol ol {
+  list-style-type: lower-roman;
+}
+
+.markdown nav ol {
+  counter-reset: item;
+  padding-left: 2rem;
+}
+
+.markdown nav li {
+  display: block;
+}
+
+.markdown nav li:before {
+  content: counters(item, '.') ' ';
+  counter-increment: item;
+  padding-right: 0.85rem;
+}
+
+.markdown dl dd {
+  text-align: center;
+}
+
+.markdown h1 {
+  font-size: 2.5rem;
+  line-height: 3.25rem;
+  margin-bottom: 1.625rem;
+}
+
+.markdown h2 {
+  font-size: 1.7rem;
+  line-height: 2rem;
+  margin-top: 3rem;
+}
+
+.markdown h3 {
+  font-size: 1.4rem;
+  margin-top: 2.5rem;
+}
+
+.markdown h4 {
+  font-size: 1.2rem;
+  margin-top: 2rem;
+}
+
+.markdown h5 {
+  font-size: 1rem;
+  margin-top: 1.8rem;
+}
+
+.markdown h6 {
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: normal;
+  margin-top: 2.5rem;
+}
+
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  line-height: 1.625rem;
+}
+
+.markdown h1 + h2 {
+  margin-top: 1.625rem;
+}
+
+.markdown h2 + h3,
+.markdown h3 + h4,
+.markdown h4 + h5 {
+  margin-top: 0.8rem;
+}
+
+.markdown h5 + h6 {
+  margin-top: -0.8rem;
+}
+
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  margin-bottom: 0.8rem;
+}
