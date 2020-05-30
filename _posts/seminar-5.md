@@ -6,7 +6,7 @@ lang: csharp
 url: seminar-5
 ---
 
-## Seminario 6 - Clausura
+## Seminario 5 - Clausura
 
 1. Ejecute el siguiente código y reponda: ¿Por qué el resultado que sale en pantalla no es el esperado? Explicar el concepto de clausura (_closure_) y la
 forma (antinatural) en que C# captura las variables en la clausur1. Apoyar la explicación con el código `IL` generado

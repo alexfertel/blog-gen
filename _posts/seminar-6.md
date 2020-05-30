@@ -6,7 +6,7 @@ lang: csharp
 url: seminar-6
 ---
 
-## Seminario 2 - LINQ
+## Seminario 6 - LINQ
 
 Brinde una implementación eficiente y simple del siguiente método extensor y analice el costo operacional para el caso peor:
 
@@ -26,7 +26,7 @@ var Grupos = estudiantes.GroupBy(estudiante => estudiante.Grupo);
 ```
 
 1. ¿Se explotaría en su totalidad una implementación “_Lazy_” del `GroupBy`? ¿El costo de las operaciones para el caso peor es el mismo independientemente de si se hace un `Take(k)`?
-2. Rescriba el siguiente código de forma tal que siga manteniendo el `while(true)` pero que permita “parar” la ejecución del método para un momento dado:
+2. Reescriba el siguiente código de forma tal que siga manteniendo el `while(true)` pero que permita “parar” la ejecución del método para un momento dado:
 
 ```c#
 static List<int> GetPrimes()
