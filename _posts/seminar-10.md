@@ -11,7 +11,7 @@ url: seminar-10
 1. Implemente el tipo `Prototype` de forma tal que el siguiente código compile y ejecute (`C#` 4.0) con la
 salida que se muestra a continuación:
 
-```c#
+```csharp
 class Program {
     private static void Main(string[] args) {
         // Característica A

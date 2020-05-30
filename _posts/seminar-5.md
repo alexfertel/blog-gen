@@ -12,7 +12,7 @@ url: seminar-5
 forma (antinatural) en que C# captura las variables en la clausur1. Apoyar la explicación con el código `IL` generado
 (use `Reflector`).
 
-```c#
+```csharp
 var actions = new Action[10];
 for (int x = 0; x < actions.Length; x++)
 {
@@ -27,7 +27,7 @@ for (int x = 0; x < actions.Length; x++)
 
 2. Explique por qué el siguiente código lanza excepción:
 
-```c#
+```csharp
 var actions = new List<Action>();
 string[] urls =
 {

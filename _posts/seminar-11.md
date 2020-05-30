@@ -13,7 +13,7 @@ url: seminar-11
 3. ¿Qué representan `call site`, `receiver` y `binder`?
 4. Explique que genera el compilador de `C#` para el siguiente código:
 
-```c#
+```csharp
 string text = "text to cut";
 dynamic startIndex = 2;
 string substring = text.Substring(startIndex);

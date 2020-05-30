@@ -50,7 +50,7 @@ desacoplado (*loosely coupled*) que se resume en: programar sobre interfaces (pr
 de Liskov: Los objetos deben poderse reemplazar por instancias de subtipos sin alterar el
 funcionamiento del programa). Ejemplo:
 
-   ```c#
+   ```csharp
    // Mal Uso
    class ConsoleLogger 
    {
@@ -100,7 +100,7 @@ funcionamiento del programa). Ejemplo:
    constructor y de este modo adaptarlo a diferentes implementaciones de la `interface` a
    "inyectar". Explique las limitantes del código de la izquierda.
 
-```c#
+```csharp
 // Mal Uso
 class Dog
 {
@@ -140,7 +140,7 @@ de programación donde la creación de los objetos es responsabilidad de una “
 Al contenedor se le registran las dependencias y es él quien realiza todas las instanciaciones. 
 Ejemplo:
 
-   ```c#
+   ```csharp
    interface IContainer {
        void Register<T>(Type implementation);
        T Resolve<T>();
@@ -188,7 +188,7 @@ Ejemplo:
    5. ¿Qué se debe hacer en `Container` para que las siguientes líneas (por separado) lancen
         excepción:
 
-      ```c#
+      ```csharp
       container.Register<ILogger>(typeof(Dog));
       container.Register<Dog>(typeof(Wolf));  // Wolf hereda de Dog
       ```
