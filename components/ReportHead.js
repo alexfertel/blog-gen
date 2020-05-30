@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const ReportHead = () => (
+const ReportHead = () => (
   <>
     <p>
       Los requerimientos de cada ejercicio del seminario serán expuestos desde el punto de vista práctico y teórico; es
@@ -25,3 +25,5 @@ export const ReportHead = () => (
     </p>
   </>
 );
+
+export default ReportHead;
