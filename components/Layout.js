@@ -1,5 +1,5 @@
 import React from 'react';
-import Meta from './meta';
+import Meta from './Meta';
 
 export default function Layout({ children }) {
   return (
