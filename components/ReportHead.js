@@ -3,7 +3,7 @@ import React from 'react';
 const ReportHead = () => (
   <>
     <p>
-      Los requerimientos de cada ejercicio del seminario serán expuestos desde el punto de vista práctico y teórico; es
+      Los requerimientos de cada ejercicio del seminario serán expuestos desde el punto de vista práctico y teórico, es
       decir, para su exposición, cada equipo se basará en el caso práctico en cuestión para introducir y explicar el
       elemento teórico requerido. La exposición no es una mera enunciación de código. Preguntas como:
       <em>{' ¿Por qué?,'}</em>

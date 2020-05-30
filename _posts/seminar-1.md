@@ -6,7 +6,7 @@ lang: cpp
 url: seminar-1
 ---
 
-## Seminario 1 (`C++98`, `C++0x`)
+## Seminario 1 (C++98, C++0x)
 
 Implemente una clase `linked_list` doblemente enlazada en `C++` (con los elementos disponibles en el lenguaje hasta antes de `C++11` (`C++0x`)) que cumpla los siguientes requerimientos:
 

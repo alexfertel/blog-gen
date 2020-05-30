@@ -59,8 +59,8 @@ cómo definir tipos nuevos.
 5. Explique qué son los *type classes* y a qué recurso visto
 anteriormente en el curso son semejantes. 
 
-a. Defina un tipo algebraico que sea una *type instance* de `Eq`. 
-b. Explique qué es *mutual recursion*.
-c. Explique qué es *minimal complete definition*.
+1. Defina un tipo algebraico que sea una *type instance* de `Eq`. 
+2. Explique qué es *mutual recursion*.
+3. Explique qué es *minimal complete definition*.
 
 

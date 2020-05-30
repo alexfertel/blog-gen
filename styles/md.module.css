@@ -88,11 +88,31 @@
   overflow: auto;
   border-radius: 4px;
   background: hsl(210, 28%, 93%);
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 .markdown pre code {
   font-size: 95%;
   position: relative;
+}
+
+.markdown ol .markdown ul {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  padding-inline-start: 24px;
+}
+
+.markdown ol {
+  list-style: decimal;
+}
+
+.markdown ul {
+  list-style-type: disc;
+}
+
+.markdown blockquote {
+  padding: 16px 28px;
 }
 
 .markdown kbd {

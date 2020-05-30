@@ -163,8 +163,8 @@ Si se le aplica `fmap f` a `t`, el resultado es el siguiente:
 \end{verbatim}
 
 
-a. Haga `Forky` una instancia de `Functor`.
-b. ¿Cumple con las leyes de los `Functors`?
+1. Haga `Forky` una instancia de `Functor`.
+2. ¿Cumple con las leyes de los `Functors`?
 
 5. ¿Qué es *lifting*? Ponga un ejemplo de *lifting* con `fmap`.
 6. ¿Cuál es la signatura de `(fmap . fmap)`? Explique cómo se llega

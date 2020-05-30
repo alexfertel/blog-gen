@@ -50,10 +50,10 @@ parámetros ordenados según dicha permutación. El valor en la posición
 `i` de la permutación indica la posición del parámetro `i` de la 
 función original en la función resultante. Vea los siguientes ejemplos:
 
-a. `g = rearrangeParams(sum, 3, 2, 1, 0)`: la función `g` es 
+1. `g = rearrangeParams(sum, 3, 2, 1, 0)`: la función `g` es 
 equivalente a la función `sum` con los parámetros invertidos, o sea, 
 `sum(a, b, c, d)` es equivalente a hacer `g(d, c, b, a)`
-b. `g = rearrangeParams(sum, 0, 1, 3, 2)` : la función `g` es 
+2. `g = rearrangeParams(sum, 0, 1, 3, 2)` : la función `g` es 
 equivalente a la función `sum` con los dos últimos parámetros 
 invertidos, o sea, `sum(a, b, c, d)` es equivalente a 
 hacer `g(a, b, d, c)`.
@@ -63,6 +63,6 @@ Las funciones que pueden recibir como argumento `fixParams` y
 posicionales. Para simplificar el problema asuma que estas funciones no 
 tendrán cantidades variables de parámetros.
     
-a. Explique cómo funciona la resolución de nombres (*name binding*) 
+1. Explique cómo funciona la resolución de nombres (*name binding*) 
 dentro del cuerpo de una función en `Python`.
 
