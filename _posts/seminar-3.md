@@ -31,7 +31,7 @@ Los Zerg por otro lado tienen:
    1. ¿Cuál es el tipo de herencia por defecto de `C++` (`public`, `protected` o `private`)?
    2. ¿Cómo se representa en memoria la herencia en `C++`?
 
-```c++
+```cpp
 class Unit{
 	int _life, _attack, _defense;
 	std::string _name;
@@ -70,7 +70,7 @@ Para modelar estos requisitos:
 1. Utilice la siguiente clase base para la jerarquía de los poderes:
 
 
-```c++
+```cpp
 class Power
 {
 public:
@@ -81,7 +81,7 @@ public:
 
 2. Utilice la siguiente clase para describir a las unidades que tienen energía (_mana_) para canalizar poderes.
 
-```c++
+```cpp
 class Mana_Unit
 {
 	int _mana, _genManaPerSecond;
