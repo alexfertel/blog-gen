@@ -1,12 +1,10 @@
 ---
-title: Title goes here
+title: Seminarios de Lenguajes Dinámicos
 id: 16
-description: Description goes here
-lang: Language goes here
-url: URL goes here
+description: Seminario 16 - `Python` III
+lang: python
+url: seminar-16
 ---
-
-# Seminarios de Lenguajes Dinámicos I
 
 ## Seminario 16 - `Python` III
 

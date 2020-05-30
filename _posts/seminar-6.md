@@ -6,7 +6,6 @@ lang: csharp
 url: seminar-6
 ---
 
-
 ## Seminario 2 - LINQ
 
 Brinde una implementación eficiente y simple del siguiente método extensor y analice el costo operacional para el caso peor:
@@ -28,7 +27,6 @@ var Grupos = estudiantes.GroupBy(estudiante => estudiante.Grupo);
 
 1. ¿Se explotaría en su totalidad una implementación “_Lazy_” del `GroupBy`? ¿El costo de las operaciones para el caso peor es el mismo independientemente de si se hace un `Take(k)`?
 2. Rescriba el siguiente código de forma tal que siga manteniendo el `while(true)` pero que permita “parar” la ejecución del método para un momento dado:
-
 
 ```c#
 static List<int> GetPrimes()
@@ -63,29 +61,22 @@ infinity = 1 + infinity
 5. ¿Cuál es el resultado de evaluar `four` en `infinity`?
 6. ¿Son equivalentes los siguientes códigos?
 
-\begin{multicols}{2}
-
-\begin{verbatim}
-if (Cond1() || Cond2())
-{
-Console.WriteLine(true);
+```c#
+if (Cond1() || Cond2()) {
+    Console.WriteLine(true);
 }
-else
-{
-Console.WriteLine(false);
+else {
+    Console.WriteLine(false);
 }
+```
 
-if (Cond1() | Cond2())
-{
-Console.WriteLine(true);
+```c#
+if (Cond1() | Cond2()) {
+    Console.WriteLine(true);
 }
-else
-{
-Console.WriteLine(false);
+else {
+    Console.WriteLine(false);
 }
-
-\end{verbatim}
-
-\end{multicols}
+```
 
 7. Explique cómo funciona `yield return`. ¿Cómo se logra este comportamiento? ¿En `Java` existe algun mecanismo análogo?

@@ -1,9 +1,9 @@
 ---
-title: Title goes here
+title: Seminarios de C#
 id: 11
-description: Description goes here
-lang: Language goes here
-url: URL goes here
+description: Seminario 11 - DLR
+lang: csharp
+url: seminar-11
 ---
 
 ## Seminario 11 - DLR

@@ -1,26 +1,10 @@
 ---
-title: Title goes here
+title: Seminarios de Lenguajes Funcionales
 id: 24
-description: Description goes here
-lang: Language goes here
-url: URL goes here
+description: Seminario 24 - Haskell III
+lang: haskell
+url: seminar-24
 ---
-
-# Seminarios de Lenguajes Funcionales
-
-Los requerimientos de cada ejercicio del seminario serán expuestos
-desde el punto de vista práctico y teórico; es decir, para su
-exposición, cada equipo se basará en el caso práctico en cuestión para
-introducir y explicar el elemento teórico requerido. La exposición no
-es una mera enunciación de código. Preguntas como: _¿Por qué?_,
-_¿Basándose en qué?_, _¿Cómo se logra esto en el lenguaje `X`?_ entre
-otras, deben hacerse.
-
-Todos los miembros del equipo deben participar en la solución del
-ejercicio y estar preparados para exponer todo el trabajo. **La persona
-a exponer** se decide el día de la exposición. Quién no esté presente
-en la exposición de su equipo tiene `0` en la evaluación. (Note que
-estas notas se promedian y hay distinción entre 0 y 2).
 
 ## Seminario 24 - Haskell III
 
@@ -47,21 +31,21 @@ que se cumpla el siguiente comportamiento:
     el resultado de hacer `fmap func t2` como se ve en el ejemplo:
 
 Sea `t1` el siguiente `Forky`:
-\begin{verbatim}
+```
                                     /\
                                    f  g
-\end{verbatim}
+```
 
 Sea `t2` el siguiente `Forky`:
-\begin{verbatim}
+```
                                     /\
                                    2  \
                                       /\
                                      7  8
-\end{verbatim}
+```
 
 El resultado de hacer `t1 <*> t2` es:
-\begin{verbatim}
+```
                                   /\
                                  /   \
                                 /     \
@@ -71,7 +55,7 @@ El resultado de hacer `t1 <*> t2` es:
                                 / \       / \
                               f 7 f 8   g 2  /\
                                            g 7  g 8
-\end{verbatim}
+```
 
 Podemos pensar en `Forky` como una estructura de datos arbórea
 y `<*>` como una extensión de dicha estructura de forma tal

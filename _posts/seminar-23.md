@@ -1,26 +1,10 @@
 ---
-title: Title goes here
+title: Seminarios de Lenguajes Funcionales
 id: 23
-description: Description goes here
-lang: Language goes here
-url: URL goes here
+description: Seminario 23 - Haskell II
+lang: haskell
+url: seminar-23
 ---
-
-# Seminarios de Lenguajes Funcionales
-
-Los requerimientos de cada ejercicio del seminario serán expuestos
-desde el punto de vista práctico y teórico; es decir, para su
-exposición, cada equipo se basará en el caso práctico en cuestión para
-introducir y explicar el elemento teórico requerido. La exposición no
-es una mera enunciación de código. Preguntas como: _¿Por qué?_,
-_¿Basándose en qué?_, _¿Cómo se logra esto en el lenguaje `X`?_ entre
-otras, deben hacerse.
-
-Todos los miembros del equipo deben participar en la solución del
-ejercicio y estar preparados para exponer todo el trabajo. **La persona
-a exponer** se decide el día de la exposición. Quién no esté presente
-en la exposición de su equipo tiene `0` en la evaluación. (Note que
-estas notas se promedian y hay distinción entre 0 y 2).
 
 ## Seminario 23 - Haskell II
 
@@ -144,23 +128,23 @@ data Forky a = Tip a | Branch ( Forky a ) ( Forky a )
 Un `Branch` representa los puntos de división, mientras que `Tip`
 representa las hojas en el siguiente árbol:
 
-\begin{verbatim}
+```
                                     /\
                                    2  \
                                       /\
                                      7  8
-\end{verbatim}
+```
 
 Este árbol `t` está representado por `Branch (Tip 2) (Branch (Tip 7) (Tip 8))`.
 
 Si se le aplica `fmap f` a `t`, el resultado es el siguiente: 
 
-\begin{verbatim}
+```
                                     /\
                                 (f 2) \
                                       /\
                                   (f 7) (f 8)
-\end{verbatim}
+```
 
 
 1. Haga `Forky` una instancia de `Functor`.
