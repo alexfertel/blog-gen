@@ -8,7 +8,7 @@ const ReportSummary = ({ report: { title, description, lang, url } }) => {
   return (
     <div className="w-full p-4 xl:w-1/3 md:w-1/2">
       <Link href={`/posts/${url}`}>
-        <div className="p-6 transition-shadow duration-300 bg-white rounded-lg shadow-sm cursor-pointer hover:shadow-md">
+        <div className="p-6 transition-shadow transition-transform duration-300 transform bg-white rounded-lg shadow-sm cursor-pointer hover:scale-105 hover:shadow-lg">
           <div className="inline-flex items-center justify-center w-10 h-10 mb-4 text-blue-500 bg-blue-100 rounded-full">
             <Icon className="w-6 h-6" />
           </div>
@@ -31,7 +31,7 @@ const Index = ({ posts }) => (
           <p className="w-full text-base leading-relaxed lg:w-1/2">
             {'Fuente en markdown '}
             <a
-              href="https://github.com/alexfertel/reports"
+              href="https://github.com/alexfertel/blog-gen"
               className="text-blue-500 focus:outline-none focus:text-blue-700 focus:underline hover:underline"
             >
               aquí.
