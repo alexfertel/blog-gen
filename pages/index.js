@@ -6,7 +6,7 @@ import { getAllPosts } from '../lib/api';
 const ReportSummary = ({ report: { title, description, lang, url } }) => {
   const Icon = getIcon(lang);
   return (
-    <div className="p-4 xl:w-1/3 md:w-1/2">
+    <div className="w-full p-4 xl:w-1/3 md:w-1/2">
       <Link href={`/posts/${url}`}>
         <div className="p-6 transition-shadow duration-300 bg-white rounded-lg shadow-sm cursor-pointer hover:shadow-md">
           <div className="inline-flex items-center justify-center w-10 h-10 mb-4 text-blue-500 bg-blue-100 rounded-full">
