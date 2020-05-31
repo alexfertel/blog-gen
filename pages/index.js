@@ -36,8 +36,11 @@ const useFilter = posts => {
       posts
         .map(post => {
           const postData = [post.title, post.description, post.content].join(' ');
-          post.matchedLength = lcs(postData, keywords);
-          return post;
+          
+          return {
+              ...post,
+              matchedLength: lcs(postData, keywords)
+          };
         })
         .sort((post1, post2) => (post1.matchedLength > post2.matchedLength ? '-1' : '1'))
     );
