@@ -9,11 +9,13 @@ const ReportSummary = ({ report: { title, description, lang, url } }) => {
     <div className="w-full p-4 xl:w-1/3 md:w-1/2">
       <Link href={`/posts/${url}`}>
         <div className="p-6 transition-shadow transition-transform duration-300 transform bg-white rounded-lg shadow-sm cursor-pointer hover:scale-105 hover:shadow-lg">
-          <div className="inline-flex items-center justify-center w-10 h-10 mb-4 text-blue-500 bg-blue-100 rounded-full">
-            <Icon className="w-6 h-6" />
+          <div className="flex items-center justify-between w-full">
+            <h2 className="text-xl font-medium text-gray-800">{title}</h2>
+            <div className="inline-flex items-center justify-center text-blue-500 rounded-full">
+              <Icon className="w-8 h-8" />
+            </div>
           </div>
-          <h2 className="mb-2 text-lg font-medium text-gray-900 title-font">{title}</h2>
-          <p className="text-base leading-relaxed">{description}</p>
+          <p className="pt-4 text-base leading-relaxed">{description}</p>
         </div>
       </Link>
     </div>
@@ -25,7 +27,7 @@ const Index = ({ posts }) => (
     <section className="text-gray-700 body-font">
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-col flex-wrap items-center w-full text-center">
-          <h1 className="mb-2 text-2xl font-medium text-gray-900 sm:text-3xl title-font">
+          <h1 className="mb-2 text-2xl font-medium text-gray-900 sm:text-3xl">
             Seminarios de Lenguajes de Programación
           </h1>
           <p className="w-full text-base leading-relaxed lg:w-1/2">

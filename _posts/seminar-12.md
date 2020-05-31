@@ -1,7 +1,7 @@
 ---
 title: Seminarios de C#
 id: 12
-description: Seminario 12 - Nuevas versiones de `C#`
+description: Seminario 12 - Nuevas versiones de C#
 lang: csharp
 url: seminar-12
 ---

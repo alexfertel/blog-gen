@@ -1,7 +1,7 @@
 ---
-title: Seminarios de C++
+title: Seminario 1 (C++98, C++0x)
 id: 1
-description: Seminario 1 (C++98, C++0x)
+description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis tincidunt id aliquet risus feugiat.
 lang: cpp
 url: seminar-1
 ---

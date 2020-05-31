@@ -1,7 +1,7 @@
 ---
 title: Seminarios de Lenguajes Dinámicos
 id: 14
-description: Seminario 14 - `Python` I
+description: Seminario 14 - Python I
 lang: python
 url: seminar-14
 ---

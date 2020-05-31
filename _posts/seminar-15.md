@@ -1,7 +1,7 @@
 ---
 title: Seminarios de Lenguajes Dinámicos
 id: 15
-description: Seminario 15 - `Python` II
+description: Seminario 15 - Python II
 lang: python
 url: seminar-15
 ---

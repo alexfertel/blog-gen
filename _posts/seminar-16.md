@@ -1,7 +1,7 @@
 ---
 title: Seminarios de Lenguajes Dinámicos
 id: 16
-description: Seminario 16 - `Python` III
+description: Seminario 16 - Python III
 lang: python
 url: seminar-16
 ---
