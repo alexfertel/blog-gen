@@ -1,7 +1,7 @@
 ---
-title: Seminarios de C#
+title: DSL en C# 4.0
 id: 8
-description: Seminario 4 - DSL en C# 4.0
+description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis tincidunt id aliquet risus feugiat.
 lang: csharp
 url: seminar-8
 ---

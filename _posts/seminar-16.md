@@ -1,7 +1,7 @@
 ---
-title: Seminarios de Lenguajes Dinámicos
+title: Generadores
 id: 16
-description: Seminario 16 - `Python` III
+description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis tincidunt id aliquet risus feugiat.
 lang: python
 url: seminar-16
 ---

@@ -1,7 +1,7 @@
 ---
-title: Seminarios de C++
+title: Metaprogramación (C++11 y C++14)
 id: 4
-description: Seminario (C++11, C++14)
+description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis tincidunt id aliquet risus feugiat.
 lang: cpp
 url: seminar-4
 ---

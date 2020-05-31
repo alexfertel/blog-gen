@@ -1,7 +1,7 @@
 ---
-title: Seminarios de C#
+title: Patrones de Diseño
 id: 9
-description: Seminario 5 - Patrones de Diseño
+description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis tincidunt id aliquet risus feugiat.
 lang: csharp
 url: seminar-9
 ---

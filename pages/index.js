@@ -64,7 +64,7 @@ const ReportSummary = ({ report: { title, description, lang, url } }) => {
         <div className="inline-flex items-center justify-center w-10 h-10 mb-4 text-blue-500 bg-blue-100 rounded-full">
           <Icon className="w-6 h-6" />
         </div>
-        <h2 className="mb-2 text-lg font-medium text-gray-900 title-font">{title}</h2>
+        <h2 className="mb-2 text-lg font-medium text-gray-800">{title}</h2>
         <p className="text-base leading-relaxed">{description}</p>
       </div>
     </Link>
@@ -81,7 +81,7 @@ const Index = ({ posts }) => {
       <section className="text-gray-700 body-font">
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-col flex-wrap items-center w-full text-center">
-            <h1 className="mb-2 text-2xl font-medium text-gray-900 sm:text-3xl title-font">
+            <h1 className="mb-2 text-2xl font-medium text-gray-900 sm:text-3xl">
               Seminarios de Lenguajes de Programación
             </h1>
             <p className="w-full text-base leading-relaxed lg:w-1/2">

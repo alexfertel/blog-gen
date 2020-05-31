@@ -1,7 +1,7 @@
 ---
-title: Seminarios de Lenguajes Funcionales
+title: Álgebras
 id: 23
-description: Seminario 23 - Haskell II
+description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis tincidunt id aliquet risus feugiat.
 lang: haskell
 url: seminar-23
 ---

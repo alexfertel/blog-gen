@@ -1,7 +1,7 @@
 ---
-title: Seminarios de C#
+title: LINQ
 id: 6
-description: Seminario 2 - LINQ
+description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis tincidunt id aliquet risus feugiat.
 lang: csharp
 url: seminar-6
 ---

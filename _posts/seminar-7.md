@@ -1,7 +1,7 @@
 ---
-title: Seminarios de C#
+title: Varianza, Covarianza, Herencia y Polimorfismo
 id: 7
-description: Seminario 3 - Varianza, Covarianza, Herencia y Polimorfismo
+description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis tincidunt id aliquet risus feugiat.
 lang: csharp
 url: seminar-7
 ---
