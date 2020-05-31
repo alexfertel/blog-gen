@@ -57,15 +57,16 @@ const useFilter = posts => {
 
 const ReportSummary = ({ report: { title, description, lang, url } }) => {
   const Icon = getIcon(lang);
-
   return (
     <Link href={`/posts/${url}`}>
       <div className="p-6 transition-shadow transition-transform duration-300 transform bg-white rounded-lg shadow-sm cursor-pointer hover:scale-105 hover:shadow-lg">
-        <div className="inline-flex items-center justify-center w-10 h-10 mb-4 text-blue-500 bg-blue-100 rounded-full">
-          <Icon className="w-6 h-6" />
+        <div className="flex items-center justify-between w-full">
+          <h2 className="text-xl font-medium text-gray-800">{title}</h2>
+          <div className="inline-flex items-center justify-center text-blue-500 rounded-full">
+            <Icon className="w-8 h-8" />
+          </div>
         </div>
-        <h2 className="mb-2 text-lg font-medium text-gray-800">{title}</h2>
-        <p className="text-base leading-relaxed">{description}</p>
+        <p className="pt-4 text-base leading-relaxed">{description}</p>
       </div>
     </Link>
   );
