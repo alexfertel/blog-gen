@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import _ from 'lodash';
 import { getIcon } from '../icons/utils';
 import { getAllPosts } from '../lib/api';
 
-const lcs = (stringPar, patternPar) => {
-  const string = stringPar.toLowerCase();
-  const pattern = patternPar.toLowerCase();
+const lcs = (string, pattern) => {
+  const s = string.toLowerCase();
+  const p = pattern.toLowerCase();
 
-  const m = string.length;
-  const n = pattern.length;
+  const m = s.length;
+  const n = p.length;
 
   const dp = [];
   let result = 0;
@@ -17,7 +18,7 @@ const lcs = (stringPar, patternPar) => {
   for (let i = 0; i < m + 1; i++) {
     for (let j = 0; j < n + 1; j++) {
       if (i === 0 || j === 0) dp[i][j] = 0;
-      else if (string[i - 1] === pattern[j - 1]) {
+      else if (s[i - 1] === p[j - 1]) {
         dp[i][j] = dp[i - 1][j - 1] + 1;
         result = Math.max(result, dp[i][j]);
       } else dp[i][j] = 0;
@@ -28,25 +29,29 @@ const lcs = (stringPar, patternPar) => {
 };
 
 const useFilter = posts => {
+  const [filter, setFilter] = useState('');
   const [filteredPosts, setFilteredPosts] = useState(posts);
 
-  const onKeywordsChange = e => {
-    const keywords = e.target.value;
-    setFilteredPosts(
-      posts
-        .map(post => {
-          const postData = [post.title, post.description, post.content].join(' ');
-          
-          return {
+  useEffect(() => {
+    const debouncedFilter = _.debounce(
+      () =>
+        setFilteredPosts(
+          posts
+            .map(post => ({
               ...post,
-              matchedLength: lcs(postData, keywords)
-          };
-        })
-        .sort((post1, post2) => (post1.matchedLength > post2.matchedLength ? '-1' : '1'))
+              matchedLength: lcs([post.title, post.description, post.content].join(' '), filter),
+            }))
+            .filter(post => post.matchedLength > 0)
+            .sort((post1, post2) => (post1.matchedLength > post2.matchedLength ? '-1' : '1'))
+        ),
+      250
     );
-  };
 
-  return [filteredPosts, onKeywordsChange];
+    if (filter) debouncedFilter();
+    return () => debouncedFilter.cancel?.();
+  }, [posts, filter]);
+
+  return [filteredPosts, setFilter];
 };
 
 const ReportSummary = ({ report: { title, description, lang, url } }) => {
@@ -67,7 +72,9 @@ const ReportSummary = ({ report: { title, description, lang, url } }) => {
 };
 
 const Index = ({ posts }) => {
-  const [filteredPosts, onKeywordsChange] = useFilter(posts);
+  const [filteredPosts, setFilter] = useFilter(posts);
+
+  const handleOnChange = ({ target: { value } }) => setFilter(value);
 
   return (
     <div className="container max-w-6xl min-h-screen mx-auto">
@@ -106,7 +113,7 @@ const Index = ({ posts }) => {
                 className="absolute w-full py-3 pl-10 pr-4 font-medium text-gray-800 placeholder-gray-500 transition-all duration-300 bg-gray-200 border border-transparent rounded-lg shadow-sm focus:bg-white focus:border-gray-800 hover:border-gray-400 focus:outline-none"
                 placeholder="Intenta buscar seminarios (Título, contenido, etc.)"
                 type="text"
-                onChange={onKeywordsChange}
+                onChange={handleOnChange}
               />
             </div>
           </div>
