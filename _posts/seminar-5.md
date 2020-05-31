@@ -1,7 +1,7 @@
 ---
-title: Seminarios de C#
+title: Clausura
 id: 5
-description: Seminario 1 - Clausura
+description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis tincidunt id aliquet risus feugiat.
 lang: csharp
 url: seminar-5
 ---

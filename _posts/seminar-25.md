@@ -1,7 +1,7 @@
 ---
-title: Seminarios de Lenguajes Funcionales
+title: Introducción a F#
 id: 25
-description: Seminario 25 - `F#`
+description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis tincidunt id aliquet risus feugiat.
 lang: fsharp
 url: seminar-25
 ---

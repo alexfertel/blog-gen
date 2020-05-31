@@ -1,7 +1,7 @@
 ---
-title: Seminarios de C++
+title: Recursos hasta (C++11, C++14)
 id: 2
-description: Seminario (C++11, C++14)
+description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis tincidunt id aliquet risus feugiat.
 lang: cpp
 url: seminar-2
 ---

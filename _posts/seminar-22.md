@@ -1,7 +1,7 @@
 ---
-title: Seminarios de Lenguajes Funcionales
+title: Introducción a Haskell
 id: 22
-description: Seminario 22 - Haskell I
+description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis tincidunt id aliquet risus feugiat.
 lang: haskell
 url: seminar-22
 ---
