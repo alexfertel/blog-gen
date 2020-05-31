@@ -1,7 +1,7 @@
 ---
-title: Seminarios de Lenguajes Dinámicos
+title: Singleton e Inmutabilidad
 id: 17
-description: Seminario 17 - Python IV
+description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis tincidunt id aliquet risus feugiat.
 lang: python
 url: seminar-17
 ---

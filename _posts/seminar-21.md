@@ -1,7 +1,7 @@
 ---
-title: Seminarios de Lenguajes Funcionales
+title: Introducción a la Programación Funcional
 id: 21
-description: Seminario 21 - Introducción
+description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis tincidunt id aliquet risus feugiat.
 lang: fsharp
 url: seminar-21
 ---

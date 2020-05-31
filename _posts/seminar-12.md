@@ -1,7 +1,7 @@
 ---
-title: Seminarios de C#
+title: Nuevas versiones de C#
 id: 12
-description: Seminario 12 - Nuevas versiones de C#
+description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis tincidunt id aliquet risus feugiat.
 lang: csharp
 url: seminar-12
 ---

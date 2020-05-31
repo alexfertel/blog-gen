@@ -1,12 +1,12 @@
 ---
-title: Seminarios de Lenguajes Dinámicos
+title: Intro a Javascript
 id: 13
-description: Seminario 13 - Javascript
+description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis tincidunt id aliquet risus feugiat.
 lang: javascript
 url: seminar-13
 ---
 
-## Seminario 13 - `Javsacript`
+## Seminario 13 - `Javascript`
 
 `Javascript` es un lenguaje dinámico donde no existe el concepto de clase. Las características de los objetos son definidas a través de otros objetos llamados *prototipos*.
 

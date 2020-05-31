@@ -1,5 +1,5 @@
 ---
-title: Seminario 1 (C++98, C++0x)
+title: Recursos hasta (C++98, C++0x)
 id: 1
 description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis tincidunt id aliquet risus feugiat.
 lang: cpp

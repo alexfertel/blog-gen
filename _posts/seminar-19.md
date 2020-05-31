@@ -1,7 +1,7 @@
 ---
-title: Seminarios de Lenguajes Dinámicos
+title: Contratos
 id: 19
-description: Seminario 19 - Python VI
+description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis tincidunt id aliquet risus feugiat.
 lang: python
 url: seminar-19
 ---

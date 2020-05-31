@@ -1,7 +1,7 @@
 ---
-title: Seminarios de Lenguajes Dinámicos
+title: VPL
 id: 20
-description: Seminario 20 - Python VII
+description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis tincidunt id aliquet risus feugiat.
 lang: python
 url: seminar-20
 ---

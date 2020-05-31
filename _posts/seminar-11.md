@@ -1,7 +1,7 @@
 ---
-title: Seminarios de C#
+title: DLR
 id: 11
-description: Seminario 11 - DLR
+description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis tincidunt id aliquet risus feugiat.
 lang: csharp
 url: seminar-11
 ---

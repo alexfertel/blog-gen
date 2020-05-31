@@ -1,7 +1,7 @@
 ---
-title: Seminarios de Lenguajes Dinámicos
+title: Programación "funcional"
 id: 18
-description: Seminario 18 - Python V
+description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis tincidunt id aliquet risus feugiat.
 lang: python
 url: seminar-18
 ---
