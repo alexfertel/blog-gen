@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import _ from 'lodash';
+import { motion } from 'framer-motion';
 import { getIcon } from '../icons/utils';
 import { getAllPosts } from '../lib/api';
 
@@ -56,18 +57,17 @@ const useFilter = posts => {
 
 const ReportSummary = ({ report: { title, description, lang, url } }) => {
   const Icon = getIcon(lang);
+
   return (
-    <div className="w-full p-4 xl:w-1/3 md:w-1/2">
-      <Link href={`/posts/${url}`}>
-        <div className="p-6 transition-shadow transition-transform duration-300 transform bg-white rounded-lg shadow-sm cursor-pointer hover:scale-105 hover:shadow-lg">
-          <div className="inline-flex items-center justify-center w-10 h-10 mb-4 text-blue-500 bg-blue-100 rounded-full">
-            <Icon className="w-6 h-6" />
-          </div>
-          <h2 className="mb-2 text-lg font-medium text-gray-900 title-font">{title}</h2>
-          <p className="text-base leading-relaxed">{description}</p>
+    <Link href={`/posts/${url}`}>
+      <div className="p-6 transition-shadow transition-transform duration-300 transform bg-white rounded-lg shadow-sm cursor-pointer hover:scale-105 hover:shadow-lg">
+        <div className="inline-flex items-center justify-center w-10 h-10 mb-4 text-blue-500 bg-blue-100 rounded-full">
+          <Icon className="w-6 h-6" />
         </div>
-      </Link>
-    </div>
+        <h2 className="mb-2 text-lg font-medium text-gray-900 title-font">{title}</h2>
+        <p className="text-base leading-relaxed">{description}</p>
+      </div>
+    </Link>
   );
 };
 
@@ -119,7 +119,13 @@ const Index = ({ posts }) => {
           </div>
           <div className="flex flex-wrap mt-10 -m-4">
             {filteredPosts.map(post => (
-              <ReportSummary key={post.url} report={post} />
+              <motion.div
+                key={post.url}
+                positionTransition={{ type: 'tween', duration: 1 }}
+                className="w-full p-4 xl:w-1/3 md:w-1/2"
+              >
+                <ReportSummary report={post} />
+              </motion.div>
             ))}
           </div>
         </div>
