@@ -1,59 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import _ from 'lodash';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { getIcon } from '../icons/utils';
 import { getAllPosts } from '../lib/api';
-
-const lcs = (string, pattern) => {
-  const s = string.toLowerCase();
-  const p = pattern.toLowerCase();
-
-  const m = s.length;
-  const n = p.length;
-
-  const dp = [];
-  let result = 0;
-  for (let i = 0; i < m + 1; i++) dp.push(Array(n + 1));
-
-  for (let i = 0; i < m + 1; i++) {
-    for (let j = 0; j < n + 1; j++) {
-      if (i === 0 || j === 0) dp[i][j] = 0;
-      else if (s[i - 1] === p[j - 1]) {
-        dp[i][j] = dp[i - 1][j - 1] + 1;
-        result = Math.max(result, dp[i][j]);
-      } else dp[i][j] = 0;
-    }
-  }
-
-  return result;
-};
-
-const useFilter = posts => {
-  const [filter, setFilter] = useState('');
-  const [filteredPosts, setFilteredPosts] = useState(posts);
-
-  useEffect(() => {
-    const debouncedFilter = _.debounce(
-      () =>
-        setFilteredPosts(
-          posts
-            .map(post => ({
-              ...post,
-              matchedLength: lcs([post.title, post.description, post.content].join(' '), filter),
-            }))
-            .filter(post => post.matchedLength > 0)
-            .sort((post1, post2) => (post1.matchedLength > post2.matchedLength ? '-1' : '1'))
-        ),
-      250
-    );
-
-    if (filter) debouncedFilter();
-    return () => debouncedFilter.cancel?.();
-  }, [posts, filter]);
-
-  return [filteredPosts, setFilter];
-};
+import useFilter from '../hooks/useFilter';
 
 const ReportSummary = ({ report: { title, description, lang, url } }) => {
   const Icon = getIcon(lang);
@@ -119,15 +69,21 @@ const Index = ({ posts }) => {
             </div>
           </div>
           <div className="flex flex-wrap mt-10 -m-4">
-            {filteredPosts.map(post => (
-              <motion.div
-                key={post.url}
-                positionTransition={{ type: 'tween', duration: 1 }}
-                className="w-full p-4 xl:w-1/3 md:w-1/2"
-              >
-                <ReportSummary report={post} />
-              </motion.div>
-            ))}
+            <AnimatePresence>
+              {filteredPosts.map(post => (
+                <motion.div
+                  key={post.url}
+                  positionTransition={{ type: 'tween', duration: 1 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: .55 }}
+                  exit={{ opacity: 0 }}
+                  className="w-full p-4 xl:w-1/3 md:w-1/2"
+                >
+                  <ReportSummary report={post} />
+                </motion.div>
+              ))}
+            </AnimatePresence>
           </div>
         </div>
       </section>
