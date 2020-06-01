@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import _ from 'lodash';
 
-const lcs = (string, pattern) => {
+const lcsCreator = pattern => string => {
   const s = string.toLowerCase();
   const p = pattern.toLowerCase();
 
@@ -25,7 +25,7 @@ const lcs = (string, pattern) => {
   return result;
 };
 
-const cascadeSort = (post1, post2) => {
+const waterfallSorter = (post1, post2) => {
   if (post1.titleMatchedLen !== post2.titleMatchedLen) return Math.sign(post2.titleMatchedLen - post1.titleMatchedLen);
   if (post1.descMatchedLen !== post2.descMatchedLen) return Math.sign(post2.descMatchedLen - post1.descMatchedLen);
   if (post1.contentMatchedLen !== post2.contentMatchedLen)
@@ -38,26 +38,28 @@ const useFilter = posts => {
   const [filteredPosts, setFilteredPosts] = useState(posts);
 
   useEffect(() => {
+    const lcs = lcsCreator(filter);
+
     const debouncedFilter = _.debounce(
       () =>
         setFilteredPosts(
           posts
             .map(post => ({
               ...post,
-              titleMatchedLen: lcs(post.title, filter),
-              descMatchedLen: lcs(post.description, filter),
-              contentMatchedLen: lcs(post.content, filter),
+              titleMatchedLen: lcs(post.title),
+              descMatchedLen: lcs(post.description),
+              contentMatchedLen: lcs(post.content),
             }))
             .filter(
               ({ titleMatchedLen, descMatchedLen, contentMatchedLen }) =>
                 Math.max(titleMatchedLen, descMatchedLen, contentMatchedLen) >= Math.round(filter.length / 2)
             )
-            .sort(cascadeSort)
+            .sort(waterfallSorter)
         ),
       250
     );
 
-    if (filter) debouncedFilter();
+    debouncedFilter();
     return () => debouncedFilter.cancel?.();
   }, [posts, filter]);
 

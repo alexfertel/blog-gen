@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { getIcon } from '../icons/utils';
 import { getAllPosts } from '../lib/api';
 import useFilter from '../hooks/useFilter';
@@ -68,15 +68,21 @@ const Index = ({ posts }) => {
             </div>
           </div>
           <div className="flex flex-wrap mt-10 -m-4">
-            {filteredPosts.map(post => (
-              <motion.div
-                key={post.url}
-                positionTransition={{ type: 'tween', duration: 1 }}
-                className="w-full p-4 xl:w-1/3 md:w-1/2"
-              >
-                <ReportSummary report={post} />
-              </motion.div>
-            ))}
+            <AnimatePresence>
+              {filteredPosts.map(post => (
+                <motion.div
+                  key={post.url}
+                  positionTransition={{ type: 'tween', duration: 1 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: .55 }}
+                  exit={{ opacity: 0 }}
+                  className="w-full p-4 xl:w-1/3 md:w-1/2"
+                >
+                  <ReportSummary report={post} />
+                </motion.div>
+              ))}
+            </AnimatePresence>
           </div>
         </div>
       </section>
