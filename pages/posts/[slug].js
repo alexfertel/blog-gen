@@ -5,13 +5,15 @@ import ErrorPage from 'next/error';
 import { getPostBySlug, getAllPosts } from '../../lib/api';
 import markdownToHtml from '../../lib/markdownToHtml';
 import Layout from '../../components/ReportLayout';
-import ReportHead from '../../components/ReportHead'
+import ReportHead from '../../components/ReportHead';
+import PostNavigation from '../../components/PostNavigation';
 
-const ReportPage = ({ post: { title, content } }) => (
+const ReportPage = ({ post: { id, title, content } }) => (
   <Layout>
     <h2 className="text-3xl font-semibold text-center text-gray-800">{title}</h2>
     <ReportHead />
     <div dangerouslySetInnerHTML={{ __html: content }} />
+    <PostNavigation postId={id} />
   </Layout>
 );
 
