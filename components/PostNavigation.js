@@ -2,13 +2,13 @@ import React from 'react';
 import Link from 'next/link';
 
 const PostNavigation = ({ nextSlug, prevSlug }) => (
-  <div className="grid grid-cols-2 mt-16">
+  <div className="grid grid-cols-2 pb-10 max-w-sm mx-auto sm:max-w-md md:max-w-3xl">
     <div className="flex justify-start">
       {prevSlug && (
         <Link href={`/posts/${prevSlug}`}>
           <button
             type="button"
-            className="inline-flex items-center bg-gray-200 border-0 py-1 px-3  hover:bg-gray-300 rounded"
+            className="inline-flex items-center bg-gray-200 text-sm border-0 py-1 px-3  hover:bg-gray-300 rounded"
           >
             <svg
               fill="none"
@@ -31,7 +31,7 @@ const PostNavigation = ({ nextSlug, prevSlug }) => (
         <Link href={`/posts/${nextSlug}`}>
           <button
             type="button"
-            className="inline-flex items-center bg-gray-200 border-0 py-1 px-3 hover:bg-gray-300 rounded"
+            className="inline-flex items-center bg-gray-200 text-sm border-0 py-1 px-3 hover:bg-gray-300 rounded"
           >
             Siguiente
             <svg

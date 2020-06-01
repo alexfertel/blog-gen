@@ -9,12 +9,14 @@ import ReportHead from '../../components/ReportHead';
 import PostNavigation from '../../components/PostNavigation';
 
 const ReportPage = ({ post: { title, content, nextSlug, prevSlug } }) => (
-  <Layout>
-    <h2 className="text-3xl font-semibold text-center text-gray-800">{title}</h2>
-    <ReportHead />
-    <div dangerouslySetInnerHTML={{ __html: content }} />
+  <>
+    <Layout>
+      <h2 className="text-3xl font-semibold text-center text-gray-800">{title}</h2>
+      <ReportHead />
+      <div dangerouslySetInnerHTML={{ __html: content }} />
+    </Layout>
     <PostNavigation nextSlug={nextSlug} prevSlug={prevSlug} />
-  </Layout>
+  </>
 );
 
 export default function Report({ post }) {
