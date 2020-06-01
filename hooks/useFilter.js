@@ -25,6 +25,14 @@ const lcs = (string, pattern) => {
   return result;
 };
 
+const cascadeSort = (post1, post2) => {
+  if (post1.titleMatchedLen !== post2.titleMatchedLen) return Math.sign(post2.titleMatchedLen - post1.titleMatchedLen);
+  if (post1.descMatchedLen !== post2.descMatchedLen) return Math.sign(post2.descMatchedLen - post1.descMatchedLen);
+  if (post1.contentMatchedLen !== post2.contentMatchedLen)
+    return Math.sign(post2.contentMatchedLen - post1.contentMatchedLen);
+  return 0;
+};
+
 const useFilter = posts => {
   const [filter, setFilter] = useState('');
   const [filteredPosts, setFilteredPosts] = useState(posts);
@@ -36,23 +44,15 @@ const useFilter = posts => {
           posts
             .map(post => ({
               ...post,
-              matchedTLength: lcs(post.title, filter),
-              matchedDLength: lcs(post.description, filter),
-              matchedCLength: lcs(post.content, filter),
+              titleMatchedLen: lcs(post.title, filter),
+              descMatchedLen: lcs(post.description, filter),
+              contentMatchedLen: lcs(post.content, filter),
             }))
             .filter(
-              post =>
-                Math.max(post.matchedTLength, post.matchedDLength, post.matchedCLength) >= Math.round(filter.length / 2)
+              ({ titleMatchedLen, descMatchedLen, contentMatchedLen }) =>
+                Math.max(titleMatchedLen, descMatchedLen, contentMatchedLen) >= Math.round(filter.length / 2)
             )
-            .sort((post1, post2) => {
-              if (post1.matchedTLength !== post2.matchedTLength)
-                return Math.sign(post2.matchedTLength - post1.matchedTLength);
-              if (post1.matchedDLength !== post2.matchedDLength)
-                return Math.sign(post2.matchedDLength - post1.matchedDLength);
-              if (post1.matchedCLength !== post2.matchedCLength)
-                return Math.sign(post2.matchedCLength - post1.matchedCLength);
-              return 0;
-            })
+            .sort(cascadeSort)
         ),
       250
     );
