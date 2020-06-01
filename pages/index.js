@@ -40,10 +40,23 @@ const useFilter = posts => {
           posts
             .map(post => ({
               ...post,
-              matchedLength: lcs([post.title, post.description, post.content].join(' '), filter),
+              matchedTLength: lcs(post.title, filter),
+              matchedDLength: lcs(post.description, filter),
+              matchedCLength: lcs(post.content, filter),
             }))
-            .filter(post => post.matchedLength > 0)
-            .sort((post1, post2) => (post1.matchedLength > post2.matchedLength ? '-1' : '1'))
+            .filter(
+              post =>
+                Math.max(post.matchedTLength, post.matchedDLength, post.matchedCLength) >= Math.round(filter.length / 2)
+            )
+            .sort((post1, post2) => {
+              if (post1.matchedTLength !== post2.matchedTLength)
+                return Math.sign(post2.matchedTLength - post1.matchedTLength);
+              if (post1.matchedDLength !== post2.matchedDLength)
+                return Math.sign(post2.matchedDLength - post1.matchedDLength);
+              if (post1.matchedCLength !== post2.matchedCLength)
+                return Math.sign(post2.matchedCLength - post1.matchedCLength);
+              return 0;
+            })
         ),
       250
     );
