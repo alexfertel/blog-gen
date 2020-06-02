@@ -2,16 +2,19 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
-import { getPostBySlug, getAllPosts } from '../../lib/api';
+import mdStyles from '../../styles/md.module.css';
+import { getPostBySlug, getAllPosts, getNextPostSlug, getPreviousPostSlug } from '../../lib/api';
 import markdownToHtml from '../../lib/markdownToHtml';
 import Layout from '../../components/ReportLayout';
-import ReportHead from '../../components/ReportHead'
+import ReportHead from '../../components/ReportHead';
+import PostNavigation from '../../components/PostNavigation';
 
-const ReportPage = ({ post: { title, content } }) => (
+const ReportPage = ({ post: { title, content, nextSlug, prevSlug } }) => (
   <Layout>
     <h2 className="text-3xl font-semibold text-center text-gray-800">{title}</h2>
     <ReportHead />
-    <div dangerouslySetInnerHTML={{ __html: content }} />
+    <div className={mdStyles.markdown} dangerouslySetInnerHTML={{ __html: content }} />
+    <PostNavigation nextSlug={nextSlug} prevSlug={prevSlug} />
   </Layout>
 );
 
@@ -43,6 +46,8 @@ export const getStaticProps = async ({ params }) => {
       post: {
         ...post,
         content,
+        nextSlug: getNextPostSlug(post.id),
+        prevSlug: getPreviousPostSlug(post.id),
       },
     },
   };
