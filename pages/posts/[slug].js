@@ -11,9 +11,11 @@ import PostNavigation from '../../components/PostNavigation';
 
 const ReportPage = ({ post: { title, content, nextSlug, prevSlug } }) => (
   <Layout>
-    <h2 className="text-3xl font-semibold text-center text-gray-800">{title}</h2>
-    <ReportHead />
-    <div className={mdStyles.markdown} dangerouslySetInnerHTML={{ __html: content }} />
+    <div className={mdStyles.markdown}>
+      <h2 className="text-3xl font-semibold text-center text-gray-800">{title}</h2>
+      <ReportHead />
+      <div dangerouslySetInnerHTML={{ __html: content }} />
+    </div>
     <PostNavigation nextSlug={nextSlug} prevSlug={prevSlug} />
   </Layout>
 );
