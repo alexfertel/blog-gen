@@ -8,3 +8,5 @@ export { default as JSIcon } from './svgs/javascript.svg';
 export { default as HaskellIcon } from './svgs/haskell.svg';
 export { default as LeftArrowIcon } from './svgs/leftArrow.svg';
 export { default as RightArrowIcon } from './svgs/rightArrow.svg';
+export { default as ChevronRightIcon } from './svgs/chevronRight.svg';
+export { default as HomeIcon } from './svgs/home.svg';
