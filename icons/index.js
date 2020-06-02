@@ -6,3 +6,5 @@ export { default as PythonIcon } from './svgs/python.svg';
 export { default as RubyIcon } from './svgs/ruby.svg';
 export { default as JSIcon } from './svgs/javascript.svg';
 export { default as HaskellIcon } from './svgs/haskell.svg';
+export { default as LeftArrowIcon } from './svgs/leftArrow.svg';
+export { default as RightArrowIcon } from './svgs/rightArrow.svg';
