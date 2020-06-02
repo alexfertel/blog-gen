@@ -8,10 +8,12 @@ import markdownToHtml from '../../lib/markdownToHtml';
 import Layout from '../../components/ReportLayout';
 import ReportHead from '../../components/ReportHead';
 import PostNavigation from '../../components/PostNavigation';
+import BreadcrumbNav from '../../components/BreadcrumbNav';
 
 const ReportPage = ({ post: { title, content, nextSlug, prevSlug } }) => (
   <Layout>
-    <h2 className="text-3xl font-semibold text-center text-gray-800">{title}</h2>
+    <BreadcrumbNav postTitle={title} />
+    <h2 className="mt-8 text-3xl font-semibold text-center text-gray-800">{title}</h2>
     <ReportHead />
     <div className={mdStyles.markdown} dangerouslySetInnerHTML={{ __html: content }} />
     <PostNavigation nextSlug={nextSlug} prevSlug={prevSlug} />
