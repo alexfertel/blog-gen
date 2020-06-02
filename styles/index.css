@@ -8,7 +8,7 @@
 
 /* Write you own custom component styles here */
 .btn {
-  @apply inline-flex items-center bg-gray-200 text-sm rounded border-0 py-1 px-3 transition-colors duration-500;
+  @apply inline-flex items-center bg-gray-200 text-sm rounded border-0 py-1 px-3 transform transition-transform transition-colors duration-500;
 }
 
 .btn:focus {
@@ -16,7 +16,7 @@
 }
 
 .btn:hover {
-  @apply transform scale-105 bg-gray-300;
+  @apply scale-105 bg-gray-300;
 }
 
 /* Start purging... */
