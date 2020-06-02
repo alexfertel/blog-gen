@@ -2,28 +2,33 @@ import React from 'react';
 import Link from 'next/link';
 import { ChevronRightIcon, HomeIcon } from '../icons/index';
 
+const Breadcrumb = ({ href, text }) => (
+  <Link href={href}>
+    <span className="transition-colors duration-150 cursor-pointer hover:text-gray-700">{text}</span>
+  </Link>
+);
+
 const BreadcrumbNav = ({ postTitle }) => (
-  <nav className="text-xs sm:text-sm font-medium text-gray-400 bg-gray-200 rounded-r-full" aria-label="Breadcrumb">
-    <ol className="list-none p-1 inline-flex">
-      <li className="flex items-center">
-        <HomeIcon className="px-1 h-3" />
-        <Link href="/">
-          <span className="transition-colors duration-150 hover:text-gray-700">Home</span>
-        </Link>
-        <ChevronRightIcon className="text-gray-500 h-3 sm:mx-1" />
-      </li>
-      <li className="flex items-center">
-        {/*TODO: link to author's blogs*/}
-        <Link href="#">
-          <span className="transition-colors duration-150 hover:text-gray-700">Author</span>
-        </Link>
-        <ChevronRightIcon className="text-gray-500 h-3 sm:mx-1" />
-      </li>
-      <li>
-        <span className="text-gray-500">{postTitle}</span>
-      </li>
-    </ol>
-  </nav>
+  <header className="relative flex w-full">
+    <nav className="w-full text-xs font-medium text-gray-500 bg-gray-200 rounded-l" aria-label="Breadcrumb">
+      <ol className="inline-flex p-2 list-none">
+        <li className="flex items-center">
+          <HomeIcon className="h-3 px-1" />
+          <Breadcrumb href="/" text="Home" />
+          <ChevronRightIcon className="h-3 text-gray-500 sm:mx-1" />
+        </li>
+        <li className="flex items-center">
+          {/*TODO: link to author's blogs*/}
+          <Breadcrumb href="#" text="alexfertel" />
+          <ChevronRightIcon className="h-3 text-gray-500 sm:mx-1" />
+        </li>
+        <li className="w-40 truncate sm:w-full">
+          <span className="text-gray-700">{postTitle}</span>
+        </li>
+      </ol>
+    </nav>
+    <div className="absolute rotate-45 bg-gray-200 inset-y right-0 rounded-lg" style={{width: 28, height: 28, transform: 'translateX(12px) translateY(3.5px) rotate(45deg)'}} />
+  </header>
 );
 
 export default BreadcrumbNav;
