@@ -1,50 +1,25 @@
 import React from 'react';
 import Link from 'next/link';
+import { LeftArrowIcon, RightArrowIcon } from '../icons/index';
 
 const PostNavigation = ({ nextSlug, prevSlug }) => (
-  <div className="grid grid-cols-2 pb-10 max-w-sm mx-auto sm:max-w-md md:max-w-3xl">
-    <div className="flex justify-start">
+  <div className="flex w-full justify-between pt-12 pb-10">
+    <div className="justify-start">
       {prevSlug && (
         <Link href={`/posts/${prevSlug}`}>
-          <button
-            type="button"
-            className="inline-flex items-center bg-gray-200 text-sm border-0 py-1 px-3  hover:bg-gray-300 rounded"
-          >
-            <svg
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className="w-4 h-4 mr-1"
-              viewBox="0 0 24 24"
-            >
-              <path d="M5 12h14M12 5l-7 7 7 7" />
-            </svg>
+          <button type="button" className="btn">
+            <LeftArrowIcon className="w-4 h-4 mr-1" />
             Anterior
           </button>
         </Link>
       )}
     </div>
-    <div className="flex justify-end">
+    <div className="justify-end">
       {nextSlug && (
         <Link href={`/posts/${nextSlug}`}>
-          <button
-            type="button"
-            className="inline-flex items-center bg-gray-200 text-sm border-0 py-1 px-3 hover:bg-gray-300 rounded"
-          >
+          <button type="button" className="btn">
             Siguiente
-            <svg
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className="w-4 h-4 ml-1"
-              viewBox="0 0 24 24"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
+            <RightArrowIcon className="w-4 h-4 ml-1" />
           </button>
         </Link>
       )}

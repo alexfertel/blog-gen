@@ -7,6 +7,17 @@
 /* Stop purging. */
 
 /* Write you own custom component styles here */
+.btn {
+  @apply inline-flex items-center bg-gray-200 text-sm rounded border-0 py-1 px-3 transition-colors duration-500;
+}
+
+.btn:focus {
+  @apply outline-none shadow-outline;
+}
+
+.btn:hover {
+  @apply transform scale-105 bg-gray-300;
+}
 
 /* Start purging... */
 @tailwind utilities;
