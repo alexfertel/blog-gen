@@ -23,9 +23,9 @@ const ReportSummary = ({ report: { title, description, lang, url } }) => {
 };
 
 const Index = ({ posts }) => {
-  const [filteredPosts, setFilter] = useFilter(posts);
+  const [filteredPosts, filter] = useFilter(posts);
 
-  const handleOnChange = ({ target: { value } }) => setFilter(value);
+  const handleOnChange = ({ target: { value } }) => filter(value || '');
 
   return (
     <div className="container max-w-6xl min-h-screen mx-auto">

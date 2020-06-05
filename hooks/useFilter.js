@@ -1,5 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import _ from 'lodash';
+import ascend from 'ramda/src/ascend';
+import descend from 'ramda/src/descend';
+import prop from 'ramda/src/prop';
+import compose from 'ramda/src/compose';
+import sortWith from 'ramda/src/sortWith';
 
 const lcsCreator = pattern => string => {
   const s = string.toLowerCase();
@@ -25,45 +30,34 @@ const lcsCreator = pattern => string => {
   return result;
 };
 
-const waterfallSorter = (post1, post2) => {
-  if (post1.titleMatchedLen !== post2.titleMatchedLen) return Math.sign(post2.titleMatchedLen - post1.titleMatchedLen);
-  if (post1.descMatchedLen !== post2.descMatchedLen) return Math.sign(post2.descMatchedLen - post1.descMatchedLen);
-  if (post1.contentMatchedLen !== post2.contentMatchedLen)
-    return Math.sign(post2.contentMatchedLen - post1.contentMatchedLen);
-  return 0;
-};
+const props = ['title', 'description', 'content'].map(property => `${property}MatchedLength`);
+const sorters = props.map(property => compose(descend, prop)(property));
+const waterfallSorter = sortWith(sorters);
 
 const useFilter = posts => {
-  const [filter, setFilter] = useState('');
   const [filteredPosts, setFilteredPosts] = useState(posts);
 
-  useEffect(() => {
-    const lcs = lcsCreator(filter);
-
-    const debouncedFilter = _.debounce(
-      () =>
-        setFilteredPosts(
-          posts
-            .map(post => ({
-              ...post,
-              titleMatchedLen: lcs(post.title),
-              descMatchedLen: lcs(post.description),
-              contentMatchedLen: lcs(post.content),
-            }))
-            .filter(
-              ({ titleMatchedLen, descMatchedLen, contentMatchedLen }) =>
-                Math.max(titleMatchedLen, descMatchedLen, contentMatchedLen) >= Math.round(filter.length / 2)
-            )
-            .sort(waterfallSorter)
-        ),
-      250
+  const filter = _.debounce(keyWords => {
+    const lcs = lcsCreator(keyWords);
+    const pipeline = compose(setFilteredPosts, waterfallSorter);
+    
+    pipeline(
+      posts
+        .map(post => ({
+          ...post,
+          titleMatchedLength: lcs(post.title),
+          descriptionMatchedLength: lcs(post.description),
+          contentMatchedLength: lcs(post.content),
+        }))
+        .filter(
+          ({ titleMatchedLength, descriptionMatchedLength, contentMatchedLength }) =>
+            Math.max(titleMatchedLength, descriptionMatchedLength, contentMatchedLength) >=
+            Math.round(keyWords.length / 2)
+        )
     );
+  }, 250);
 
-    debouncedFilter();
-    return () => debouncedFilter.cancel?.();
-  }, [posts, filter]);
-
-  return [filteredPosts, setFilter];
+  return [filteredPosts, filter];
 };
 
 export default useFilter;
