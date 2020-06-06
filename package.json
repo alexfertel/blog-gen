@@ -22,11 +22,13 @@
     "ramda": "^0.27.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "react-hook-form": "^5.7.2",
     "rehype-format": "^3.0.1",
     "rehype-stringify": "^7.0.0",
     "remark-math": "^2.0.1",
     "remark-parse": "^8.0.2",
     "remark-rehype": "^7.0.0",
+    "swr": "^0.2.2",
     "typeface-quicksand": "^1.1.4",
     "unified": "^9.0.0",
     "xstate": "^4.10.0"
