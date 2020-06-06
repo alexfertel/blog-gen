@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { getIcon } from '../icons/utils';
 import { getAllPosts } from '../lib/api';
 import useFilter from '../hooks/useFilter';
+import { SearchIcon } from '../icons';
 
 const ReportSummary = ({ report: { title, description, lang, url } }) => {
   const Icon = getIcon(lang);
@@ -48,20 +49,10 @@ const Index = ({ posts }) => {
           <div className="flex justify-center mt-8">
             <div className="relative flex items-center w-full h-12 max-w-3xl">
               <div className="absolute inset-y-0 left-0 z-10 flex items-center ml-3">
-                <svg
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  className="w-5 h-5 text-gray-500"
-                >
-                  <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
+                <SearchIcon className="w-5 h-5 text-gray-500 stroke-2" />
               </div>
               <input
-                className="absolute w-full py-3 pl-10 pr-4 font-medium text-gray-800 placeholder-gray-500 transition-all duration-300 bg-gray-200 border border-transparent rounded-lg shadow-sm focus:bg-white focus:border-gray-800 hover:border-gray-400 focus:outline-none"
+                className="absolute w-full py-3 pl-10 pr-4 font-medium text-gray-800 placeholder-gray-500 transition-all duration-300 bg-gray-200 border border-transparent rounded-lg shadow-sm focus:bg-white focus:border-gray-400 hover:border-gray-400 focus:outline-none"
                 placeholder="Intenta buscar seminarios (Título, contenido, etc.)"
                 type="text"
                 onChange={handleOnChange}
@@ -76,7 +67,7 @@ const Index = ({ posts }) => {
                   positionTransition={{ type: 'tween', duration: 1 }}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ duration: .55 }}
+                  transition={{ duration: 0.55 }}
                   exit={{ opacity: 0 }}
                   className="w-full p-4 xl:w-1/3 md:w-1/2"
                 >
