@@ -14,15 +14,15 @@ const AuthenticationPage = () => {
   const getPageText = condition => (condition ? 'Iniciar sesión' : 'Crear cuenta');
 
   const BottomNavigation = withAnimation(() => (
-    <div className="flex items-center justify-between w-full mt-4 text-sm leading-4">
+    <div className="flex items-center justify-between w-full mt-3 text-sm leading-4">
       <button
-        className="text-gray-500 transition-colors duration-300 focus:outline-none hover:text-gray-800"
+        className="px-2 py-1 text-gray-500 transition-all duration-300 rounded cursor-pointer focus:outline-none focus:shadow-outline hover:bg-gray-100 focus:text-gray-700 hover:text-gray-700"
         type="button"
         onClick={() => setIsLogin(prevIsLogin => !prevIsLogin)}
       >
         {getPageText(!isLogin)}
       </button>
-      <a className="text-blue-500 transition-colors duration-300 cursor-pointer focus:outline-none hover:text-blue-800">
+      <a className="px-2 py-1 text-blue-500 transition-all duration-300 rounded cursor-pointer focus:outline-none hover:bg-gray-100 hover:text-blue-700">
         {isLogin && 'Recuperar contraseña'}
       </a>
     </div>
