@@ -10,10 +10,10 @@ const useSketch = () => {
     const generateDisc = (center, lineCount) => {
       const arcs = [];
       for (let i = 0; i < lineCount; i++) {
-        const radius = p5.random(100, 1000);
+        const radius = p5.random(100, 2000);
         const start = p5.random(360);
         const stop = p5.random(30, 180);
-        const delta = p5.random(1) < 0.5 ? p5.random(0.05, 0.4) : p5.random(-0.4, -0.05);
+        const delta = p5.random(1) < 0.5 ? p5.random(0.1, 0.6) : p5.random(-0.6, -0.1);
         arcs.push({
           w: radius,
           h: radius,
@@ -32,7 +32,7 @@ const useSketch = () => {
     p5.angleMode(p5.DEGREES);
     p5.strokeWeight(2);
 
-    disc = generateDisc({ x: 0, y: 0 }, 200);
+    disc = generateDisc({ x: 0, y: 0 }, 50);
   };
 
   const draw = p5 => {
