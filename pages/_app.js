@@ -4,11 +4,14 @@ import 'typeface-quicksand';
 import '../styles/index.css';
 import '../styles/highlight.css';
 import Layout from '../components/Layout';
+import UserProvider from '../hooks/useUser';
 
 export default function MyApp({ Component, pageProps }) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <UserProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </UserProvider>
   );
 }

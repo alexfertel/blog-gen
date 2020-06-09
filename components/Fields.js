@@ -6,12 +6,7 @@ const inputStyles =
 
 export const LoginFields = ({ register, errors }) => (
   <>
-    <input
-      ref={register({ required: true })}
-      name="user"
-      className={inputStyles}
-      placeholder="Correo o nombre de usuario"
-    />
+    <input ref={register({ required: true })} name="email" className={inputStyles} placeholder="Correo" />
     {errors?.user && errors?.user?.message}
     <PasswordInput
       registeredRef={register({ required: true })}
@@ -24,8 +19,6 @@ export const LoginFields = ({ register, errors }) => (
 
 export const RegisterFields = ({ register, errors }) => (
   <>
-    <input ref={register({ required: true })} name="username" className={inputStyles} placeholder="Username" />
-    {errors?.username && errors?.username?.message}
     <input
       ref={register({ required: true, pattern: /\S+@\S+\.\S+/ })}
       name="email"
