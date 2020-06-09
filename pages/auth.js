@@ -5,13 +5,26 @@ import { UserIcon } from '../icons';
 import withAnimation from '../hocs/withAnimation';
 import { LoginFields, RegisterFields } from '../components/Fields';
 import AuthBackground from '../components/AuthBackground';
+import firebase from '../firebase/clientApp';
+
+const createUser = ({ email, password }) =>
+  firebase
+    .auth()
+    .createUserWithEmailAndPassword(email, password)
+    .catch(error => error);
+
+const loginUser = ({ email, password }) =>
+  firebase
+    .auth()
+    .signInWithEmailAndPassword(email, password)
+    .catch(error => error);
 
 const AuthenticationPage = () => {
   const [isLogin, setIsLogin] = useState(true);
   const { register, handleSubmit, errors } = useForm();
 
   const Fields = withAnimation(isLogin ? LoginFields : RegisterFields);
-  const onSubmit = () => (isLogin ? 'login' : 'register');
+  const onSubmit = isLogin ? loginUser : createUser;
   const getPageText = condition => (condition ? 'Iniciar sesión' : 'Crear cuenta');
 
   const BottomNavigation = withAnimation(() => (

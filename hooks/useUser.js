@@ -5,7 +5,7 @@ export const UserContext = createContext();
 
 export default function UserContextComp({ children }) {
   const [user, setUser] = useState(null);
-  const [loadingUser, setLoadingUser] = useState(true); // Helpful, to update the UI accordingly.
+  const [loadingUser, setLoadingUser] = useState(true);
 
   useEffect(() => {
     // Listen authenticated user
