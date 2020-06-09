@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getIcon } from '../icons/utils';
 import { getAllPosts } from '../lib/api';
 import useFilter from '../hooks/useFilter';
+import { useUser } from '../hooks/useUser';
 import { SearchIcon } from '../icons';
+import firebase from '../firebase/clientApp';
 
 const ReportSummary = ({ report: { title, description, lang, url } }) => {
   const Icon = getIcon(lang);
@@ -25,6 +27,18 @@ const ReportSummary = ({ report: { title, description, lang, url } }) => {
 
 const Index = ({ posts }) => {
   const [filteredPosts, filter] = useFilter(posts);
+
+  // Our custom hook to get context values
+  const { loadingUser, user } = useUser();
+
+  useEffect(() => {
+    if (!loadingUser) {
+      // You know that the user is loaded: either logged in or out!
+      console.log(user);
+    }
+    // You also have your firebase app initialized
+    console.log(firebase);
+  }, [loadingUser, user]);
 
   const handleOnChange = ({ target: { value } }) => filter(value || '');
 
