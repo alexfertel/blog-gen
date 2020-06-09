@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
-import { LeftArrowIcon, RightArrowIcon } from '../icons/index';
+import { LeftArrowIcon, RightArrowIcon } from '../../icons/index';
 
-const PostNavigation = ({ nextSlug, prevSlug }) => (
+const ReportNavigation = ({ nextSlug, prevSlug }) => (
   <div className="flex justify-between w-full pt-12 pb-10">
     {prevSlug ? (
       <Link href={`/posts/${prevSlug}`}>
@@ -27,4 +27,4 @@ const PostNavigation = ({ nextSlug, prevSlug }) => (
   </div>
 );
 
-export default PostNavigation;
+export default ReportNavigation;

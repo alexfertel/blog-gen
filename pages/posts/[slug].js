@@ -5,9 +5,9 @@ import ErrorPage from 'next/error';
 import mdStyles from '../../styles/md.module.css';
 import { getPostBySlug, getAllPosts, getNextPostSlug, getPreviousPostSlug } from '../../lib/api';
 import markdownToHtml from '../../lib/markdownToHtml';
-import Layout from '../../components/ReportLayout';
-import ReportHead from '../../components/ReportHead';
-import PostNavigation from '../../components/PostNavigation';
+import Layout from '../../components/reports/ReportLayout';
+import ReportHead from '../../components/reports/ReportHead';
+import ReportNavigation from '../../components/reports/ReportNavigation';
 import BreadcrumbNav from '../../components/BreadcrumbNav';
 
 const ReportPage = ({ post: { title, content, nextSlug, prevSlug } }) => (
@@ -18,7 +18,7 @@ const ReportPage = ({ post: { title, content, nextSlug, prevSlug } }) => (
       <ReportHead />
       <div dangerouslySetInnerHTML={{ __html: content }} />
     </div>
-    <PostNavigation nextSlug={nextSlug} prevSlug={prevSlug} />
+    <ReportNavigation nextSlug={nextSlug} prevSlug={prevSlug} />
   </Layout>
 );
 

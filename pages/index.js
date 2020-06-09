@@ -1,92 +1,18 @@
 import React from 'react';
-import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
-import { getIcon } from '../icons/utils';
-import { getAllPosts } from '../lib/api';
-import useFilter from '../hooks/useFilter';
-import { SearchIcon } from '../icons';
+import HeroSection from '../components/home/HeroSection';
+import PerksSection from '../components/home/PerksSection';
+import FeaturedSection from '../components/home/FeaturedSection';
+import ContactUsSection from '../components/home/ContactUsSection';
+import Footer from '../components/home/Footer';
 
-const ReportSummary = ({ report: { title, description, lang, url } }) => {
-  const Icon = getIcon(lang);
+export default function Index() {
   return (
-    <Link href={`/posts/${url}`}>
-      <div className="p-6 transition-shadow transition-transform duration-300 transform bg-white rounded-lg shadow-sm cursor-pointer hover:scale-105 hover:shadow-lg">
-        <div className="flex items-center justify-between w-full">
-          <h2 className="text-xl font-medium text-gray-800">{title}</h2>
-          <div className="inline-flex items-center justify-center text-blue-500 rounded-full">
-            <Icon className="w-8 h-8" />
-          </div>
-        </div>
-        <p className="pt-4 text-base leading-relaxed">{description}</p>
-      </div>
-    </Link>
-  );
-};
-
-const Index = ({ posts }) => {
-  const [filteredPosts, filter] = useFilter(posts);
-
-  const handleOnChange = ({ target: { value } }) => filter(value || '');
-
-  return (
-    <div className="container max-w-6xl min-h-screen mx-auto">
-      <section className="text-gray-700 body-font">
-        <div className="container px-5 py-24 mx-auto">
-          <div className="flex flex-col flex-wrap items-center w-full text-center">
-            <h1 className="mb-2 text-2xl font-medium text-gray-900 sm:text-3xl">
-              Seminarios de Lenguajes de Programación
-            </h1>
-            <p className="w-full text-base leading-relaxed lg:w-1/2">
-              {'Fuente en markdown '}
-              <a
-                href="https://github.com/alexfertel/blog-gen"
-                className="text-blue-500 focus:outline-none focus:text-blue-700 focus:underline hover:underline"
-              >
-                aquí.
-              </a>
-            </p>
-          </div>
-          <div className="flex justify-center mt-8">
-            <div className="relative flex items-center w-full h-12 max-w-3xl">
-              <div className="absolute inset-y-0 left-0 z-10 flex items-center ml-3">
-                <SearchIcon className="w-5 h-5 text-gray-500 stroke-2" />
-              </div>
-              <input
-                className="absolute w-full py-3 pl-10 pr-4 font-medium text-gray-800 placeholder-gray-500 transition-all duration-300 bg-gray-200 border border-transparent rounded-lg shadow-sm focus:bg-white focus:border-gray-400 hover:border-gray-400 focus:outline-none"
-                placeholder="Intenta buscar seminarios (Título, contenido, etc.)"
-                type="text"
-                onChange={handleOnChange}
-              />
-            </div>
-          </div>
-          <div className="flex flex-wrap mt-10 -m-4">
-            <AnimatePresence>
-              {filteredPosts.map(post => (
-                <motion.div
-                  key={post.url}
-                  positionTransition={{ type: 'tween', duration: 1 }}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.55 }}
-                  exit={{ opacity: 0 }}
-                  className="w-full p-4 xl:w-1/3 md:w-1/2"
-                >
-                  <ReportSummary report={post} />
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </div>
-        </div>
-      </section>
+    <div className="w-full">
+      <HeroSection />
+      <PerksSection />
+      <FeaturedSection />
+      <ContactUsSection />
+      <Footer />
     </div>
   );
-};
-
-export async function getStaticProps() {
-  const posts = getAllPosts();
-  return {
-    props: { posts },
-  };
 }
-
-export default Index;

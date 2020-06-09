@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { EyeIcon, EyeOffIcon } from '../icons';
+import { EyeIcon, EyeOffIcon } from '../../icons';
 
 const PasswordInput = ({ registeredRef, placeholder, name, error }) => {
   const [showPassword, setShowPassword] = useState(false);
