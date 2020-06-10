@@ -5,7 +5,7 @@ export default function PerksSection() {
     <section className="text-gray-700">
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-col items-center pb-10 mx-auto mb-10 border-b border-gray-200 lg:w-3/5 sm:flex-row">
-          <div className="inline-flex items-center justify-center flex-shrink-0 w-20 h-20 text-indigo-500 bg-indigo-100 rounded-full sm:w-32 sm:h-32 sm:mr-10">
+          <div className="inline-flex items-center justify-center flex-shrink-0 w-20 h-20 text-blue-500 bg-blue-100 rounded-full sm:w-32 sm:h-32 sm:mr-10">
             <svg
               fill="none"
               stroke="currentColor"
@@ -23,7 +23,7 @@ export default function PerksSection() {
             <p className="text-base leading-relaxed">
               Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.
             </p>
-            <a className="inline-flex items-center mt-3 text-indigo-500">
+            <a className="inline-flex items-center mt-3 text-blue-500">
               Learn More
               <svg
                 fill="none"
@@ -45,7 +45,7 @@ export default function PerksSection() {
             <p className="text-base leading-relaxed">
               Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.
             </p>
-            <a className="inline-flex items-center mt-3 text-indigo-500">
+            <a className="inline-flex items-center mt-3 text-blue-500">
               Learn More
               <svg
                 fill="none"
@@ -60,7 +60,7 @@ export default function PerksSection() {
               </svg>
             </a>
           </div>
-          <div className="inline-flex items-center justify-center flex-shrink-0 order-first w-20 h-20 text-indigo-500 bg-indigo-100 rounded-full sm:w-32 sm:order-none sm:h-32 sm:ml-10">
+          <div className="inline-flex items-center justify-center flex-shrink-0 order-first w-20 h-20 text-blue-500 bg-blue-100 rounded-full sm:w-32 sm:order-none sm:h-32 sm:ml-10">
             <svg
               fill="none"
               stroke="currentColor"
@@ -77,7 +77,7 @@ export default function PerksSection() {
           </div>
         </div>
         <div className="flex flex-col items-center mx-auto lg:w-3/5 sm:flex-row">
-          <div className="inline-flex items-center justify-center flex-shrink-0 w-20 h-20 text-indigo-500 bg-indigo-100 rounded-full sm:w-32 sm:h-32 sm:mr-10">
+          <div className="inline-flex items-center justify-center flex-shrink-0 w-20 h-20 text-blue-500 bg-blue-100 rounded-full sm:w-32 sm:h-32 sm:mr-10">
             <svg
               fill="none"
               stroke="currentColor"
@@ -96,7 +96,7 @@ export default function PerksSection() {
             <p className="text-base leading-relaxed">
               Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.
             </p>
-            <a className="inline-flex items-center mt-3 text-indigo-500">
+            <a className="inline-flex items-center mt-3 text-blue-500">
               Learn More
               <svg
                 fill="none"
@@ -114,7 +114,7 @@ export default function PerksSection() {
         </div>
         <button
           type="button"
-          className="flex px-8 py-2 mx-auto mt-20 text-lg text-white bg-indigo-500 border-0 rounded focus:outline-none hover:bg-indigo-600"
+          className="flex px-8 py-2 mx-auto mt-20 text-lg text-white bg-blue-500 border-0 rounded focus:outline-none hover:bg-blue-600"
         >
           Button
         </button>

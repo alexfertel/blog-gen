@@ -5,14 +5,14 @@ export default function FeaturedSection() {
     <section className="text-gray-700">
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-col w-full mb-20 text-center">
-          <h2 className="mb-1 text-xs font-medium tracking-widest text-indigo-500">ROOF PARTY POLAROID</h2>
+          <h2 className="mb-1 text-xs font-medium tracking-widest text-blue-500">ROOF PARTY POLAROID</h2>
           <h1 className="text-2xl font-medium text-gray-900 sm:text-3xl">Master Cleanse Reliac Heirloom</h1>
         </div>
         <div className="flex flex-wrap -m-4">
           <div className="p-4 md:w-1/3">
             <div className="flex flex-col h-full p-8 bg-gray-100 rounded-lg">
               <div className="flex items-center mb-3">
-                <div className="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 mr-3 text-white bg-indigo-500 rounded-full">
+                <div className="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 mr-3 text-white bg-blue-500 rounded-full">
                   <svg
                     fill="none"
                     stroke="currentColor"
@@ -32,7 +32,7 @@ export default function FeaturedSection() {
                   Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice
                   poutine.
                 </p>
-                <a className="inline-flex items-center mt-3 text-indigo-500">
+                <a className="inline-flex items-center mt-3 text-blue-500">
                   Learn More
                   <svg
                     fill="none"
@@ -52,7 +52,7 @@ export default function FeaturedSection() {
           <div className="p-4 md:w-1/3">
             <div className="flex flex-col h-full p-8 bg-gray-100 rounded-lg">
               <div className="flex items-center mb-3">
-                <div className="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 mr-3 text-white bg-indigo-500 rounded-full">
+                <div className="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 mr-3 text-white bg-blue-500 rounded-full">
                   <svg
                     fill="none"
                     stroke="currentColor"
@@ -73,7 +73,7 @@ export default function FeaturedSection() {
                   Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice
                   poutine.
                 </p>
-                <a className="inline-flex items-center mt-3 text-indigo-500">
+                <a className="inline-flex items-center mt-3 text-blue-500">
                   Learn More
                   <svg
                     fill="none"
@@ -93,7 +93,7 @@ export default function FeaturedSection() {
           <div className="p-4 md:w-1/3">
             <div className="flex flex-col h-full p-8 bg-gray-100 rounded-lg">
               <div className="flex items-center mb-3">
-                <div className="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 mr-3 text-white bg-indigo-500 rounded-full">
+                <div className="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 mr-3 text-white bg-blue-500 rounded-full">
                   <svg
                     fill="none"
                     stroke="currentColor"
@@ -115,7 +115,7 @@ export default function FeaturedSection() {
                   Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice
                   poutine.
                 </p>
-                <a className="inline-flex items-center mt-3 text-indigo-500">
+                <a className="inline-flex items-center mt-3 text-blue-500">
                   Learn More
                   <svg
                     fill="none"
