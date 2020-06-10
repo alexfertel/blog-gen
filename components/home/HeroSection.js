@@ -7,7 +7,7 @@ const logInteractionStyles =
   'px-4 py-1 text-lg transition-all duration-150 transform rounded cursor-pointer hover:-translate-y-1 hover:shadow-lg hover:scale-105';
 const commonLogStyles = 'text-blue-400 border border-blue-400 hover:bg-blue-400 hover:text-gray-100';
 
-const AuthLink = ({ link }) => <Link href="/auth">{link}</Link>;
+const AuthLink = ({ link, href }) => <Link href={href}>{link}</Link>;
 
 const LogoutButton = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -34,17 +34,18 @@ const LogoutButton = () => {
 
 export default function HeroSection() {
   const { user } = useUser();
-  console.log(user)
+  console.log(user);
 
   const log = user ? (
     <LogoutButton />
   ) : (
-    <AuthLink link={<a className={`${logInteractionStyles} ${commonLogStyles}`}>Iniciar Sesión</a>} />
+    <AuthLink link={<a className={`${logInteractionStyles} ${commonLogStyles}`}>Iniciar Sesión</a>} href="/signin" />
   );
 
   const signUp = (
     <AuthLink
       link={<a className={`${logInteractionStyles} ml-4 text-gray-100 bg-blue-400 hover:bg-blue-500`}>Crear cuenta</a>}
+      href="/signup"
     />
   );
 
