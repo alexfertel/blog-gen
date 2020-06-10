@@ -3,8 +3,8 @@ import { useForm } from 'react-hook-form';
 import { motion, AnimatePresence } from 'framer-motion';
 import { UserIcon } from '../icons';
 import withAnimation from '../hocs/withAnimation';
-import { LoginFields, RegisterFields } from '../components/Fields';
-import AuthBackground from '../components/AuthBackground';
+import { LoginFields, RegisterFields } from '../components/auth/Fields';
+import AuthBackground from '../components/auth/AuthBackground';
 import firebase from '../firebase/clientApp';
 
 const createUser = ({ email, password }) =>
