@@ -6,18 +6,18 @@ import p5 from 'p5';
 
 const wr = p => p.resizeCanvas(p.windowWidth, p.windowHeight);
 
-const Sketch = ({ setup, draw, windowResized = wr }) => {
+const Sketch = ({ setup, draw, windowResized = wr, className }) => {
   const ref = useRef(null);
 
   useEffect(() => {
     new p5(p => {
-      p.setup = () => setup(p);
-      p.draw = () => draw(p);
+      p.setup = () => setup(p, ref);
+      p.draw = () => draw(p, ref);
       p.windowResized = () => windowResized(p);
     }, ref.current);
   }, []);
 
-  return <div ref={ref} />;
+  return <div className={className} ref={ref} />;
 };
 
 export default Sketch;
