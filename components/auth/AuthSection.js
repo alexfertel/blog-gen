@@ -1,41 +1,44 @@
-import React, { useState } from 'react';
+import React from 'react';
+import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { motion, AnimatePresence } from 'framer-motion';
-import { UserIcon } from '../icons';
-import withAnimation from '../hocs/withAnimation';
-import { LoginFields, RegisterFields } from '../components/auth/Fields';
-import AuthBackground from '../components/auth/AuthBackground';
-import firebase from '../firebase/clientApp';
+import { UserIcon } from '../../icons';
+import withAnimation from '../../hocs/withAnimation';
+import { LoginFields, RegisterFields } from './Fields';
+import AuthBackground from './AuthBackground';
+import firebase from '../../firebase/clientApp';
 
-const createUser = ({ email, password }) =>
-  firebase
-    .auth()
-    .createUserWithEmailAndPassword(email, password)
-    .catch(error => error);
+export default function AuthenticationSection({ isLogin }) {
+  const { register, handleSubmit, errors, setError } = useForm();
 
-const loginUser = ({ email, password }) =>
-  firebase
-    .auth()
-    .signInWithEmailAndPassword(email, password)
-    .catch(error => error);
+  const createUser = ({ email, password }) =>
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .catch(error => {
+        setError(error);
+      });
 
-const AuthenticationPage = () => {
-  const [isLogin, setIsLogin] = useState(true);
-  const { register, handleSubmit, errors } = useForm();
+  const loginUser = ({ email, password }) =>
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .catch(error => {
+        setError(error);
+      });
 
   const Fields = withAnimation(isLogin ? LoginFields : RegisterFields);
   const onSubmit = isLogin ? loginUser : createUser;
   const getPageText = condition => (condition ? 'Iniciar sesión' : 'Crear cuenta');
+  const href = isLogin ? '/signup' : '/signin';
 
   const BottomNavigation = withAnimation(() => (
     <div className="flex items-center justify-between w-full mt-3 text-sm leading-4">
-      <button
-        className="px-2 py-1 text-gray-500 transition-all duration-300 rounded cursor-pointer focus:outline-none focus:shadow-outline hover:bg-gray-100 focus:text-gray-700 hover:text-gray-700"
-        type="button"
-        onClick={() => setIsLogin(prevIsLogin => !prevIsLogin)}
-      >
-        {getPageText(!isLogin)}
-      </button>
+      <Link href={href}>
+        <a className="px-2 py-1 text-blue-500 transition-all duration-300 rounded cursor-pointer focus:outline-none focus:shadow-outline hover:bg-gray-100 focus:text-gray-700 hover:text-gray-700">
+          {getPageText(!isLogin)}
+        </a>
+      </Link>
       <a className="px-2 py-1 text-blue-500 transition-all duration-300 rounded cursor-pointer focus:outline-none hover:bg-gray-100 hover:text-blue-700">
         {isLogin && 'Recuperar contraseña'}
       </a>
@@ -73,6 +76,4 @@ const AuthenticationPage = () => {
       </div>
     </section>
   );
-};
-
-export default AuthenticationPage;
+}
