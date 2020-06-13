@@ -35,8 +35,6 @@ const LogoutButton = () => {
 
 export default function HeroSection() {
   const { user } = useUser();
-  console.log(user);
-
   const log = user ? (
     <LogoutButton />
   ) : (

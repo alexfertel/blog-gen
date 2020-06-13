@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
 
 const Sketch = dynamic(() => import('../Sketch'), { ssr: false });
@@ -6,7 +6,7 @@ const Sketch = dynamic(() => import('../Sketch'), { ssr: false });
 const useSketch = () => {
   let disc = [];
 
-  const setup = (p5, ref) => {
+  const setup = (p5, rect) => {
     const generateDisc = (center, lineCount) => {
       const arcs = [];
       for (let i = 0; i < lineCount; i++) {
@@ -27,7 +27,7 @@ const useSketch = () => {
 
     // eslint-disable-next-line no-param-reassign
     p5.disableFriendlyErrors = true;
-    p5.createCanvas(ref?.current.clientWidth || 0, ref?.current.clientHeight || 0);
+    p5.createCanvas(rect?.width || 0, rect?.height || 0);
     p5.colorMode(p5.HSL, 255);
     p5.angleMode(p5.DEGREES);
     p5.strokeWeight(2);
@@ -35,7 +35,7 @@ const useSketch = () => {
     disc = generateDisc({ x: 0, y: 0 }, 50);
   };
 
-  const draw = (p5, ref) => {
+  const draw = (p5, rect) => {
     const drawArcs = arcs => {
       return arcs.map(({ w, h, start, stop, delta }) => {
         p5.push();
@@ -46,7 +46,7 @@ const useSketch = () => {
       });
     };
 
-    p5.translate(ref?.current.clientWidth / 2 || 0, ref?.current.clientHeight / 2 || 0);
+    p5.translate((rect?.width || 0) / 2, (rect?.height || 0) / 2);
 
     const c = p5.color('#3182ce');
     p5.background(c);
@@ -57,18 +57,17 @@ const useSketch = () => {
     disc = drawArcs(disc);
   };
 
-  return [setup, draw];
+  const windowResized = (p, rect) => p.resizeCanvas(rect?.width || 0, rect?.height || 0);
+
+  return [setup, draw, windowResized];
 };
 
 const HeroBackground = ({ className }) => {
-  const [setup, draw] = useSketch();
+  const [, setRect] = useState({ width: 100, height: 100 });
+  const [setup, draw, windowResized] = useSketch();
+
   return (
-    <Sketch
-      className={className}
-      setup={setup}
-      draw={draw}
-      windowResized={(p, ref) => p.resizeCanvas(ref?.current.clientWidth || 0, ref?.current.clientHeight || 0)}
-    />
+    <Sketch onRect={r => setRect(r)} setup={setup} draw={draw} windowResized={windowResized} className={className} />
   );
 };
 

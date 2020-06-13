@@ -1,23 +1,43 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable new-cap */
 /* eslint-disable no-new */
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useCallback, useState, useRef } from 'react';
 import p5 from 'p5';
+
+function useClientRect() {
+  const [rect, setRect] = useState(null);
+  const ref = useCallback(node => {
+    if (node !== null && node.getBoundingClientRect) {
+      setRect(node.getBoundingClientRect());
+    }
+  }, []);
+  return [rect, ref];
+}
 
 const wr = p => p.resizeCanvas(p.windowWidth, p.windowHeight);
 
-const Sketch = ({ setup, draw, windowResized = wr, className }) => {
-  const ref = useRef(null);
+const Sketch = ({ setup, draw, windowResized = wr, className, onRect }) => {
+  const [rect, ref] = useClientRect();
+  const canvasRef = useRef(null);
 
   useEffect(() => {
-    new p5(p => {
-      p.setup = () => setup(p, ref);
-      p.draw = () => draw(p, ref);
-      p.windowResized = () => windowResized(p);
-    }, ref.current);
-  }, []);
+    if (canvasRef.current)
+      new p5(p => {
+        p.setup = () => setup(p, rect);
+        p.draw = () => draw(p, rect);
+        p.windowResized = () => windowResized(p, rect);
+      }, canvasRef.current);
+  }, [canvasRef.current]);
 
-  return <div className={className} ref={ref} />;
+  useEffect(() => {
+    if (rect !== null) onRect(rect);
+  }, ref.current);
+
+  return (
+    <div ref={ref} className={className}>
+      {rect !== null && <div ref={canvasRef} />}
+    </div>
+  );
 };
 
 export default Sketch;
