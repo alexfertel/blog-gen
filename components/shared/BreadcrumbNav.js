@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { ChevronRightIcon, HomeIcon } from '../icons/index';
+import { ChevronRightIcon, HomeIcon } from '../../icons/index';
 
 const Breadcrumb = ({ href, text }) => (
   <Link href={href}>
@@ -27,7 +27,7 @@ const BreadcrumbNav = ({ postTitle }) => (
         </li>
       </ol>
     </nav>
-    <div className="absolute rotate-45 bg-gray-200 inset-y right-0 rounded-lg" style={{width: 28, height: 28, transform: 'translateX(12px) translateY(3.5px) rotate(45deg)'}} />
+    <div className="absolute right-0 rotate-45 bg-gray-200 rounded-lg inset-y" style={{width: 28, height: 28, transform: 'translateX(12px) translateY(3.5px) rotate(45deg)'}} />
   </header>
 );
 
