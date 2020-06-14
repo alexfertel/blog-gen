@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getIcon } from '../../icons/utils';
@@ -25,9 +25,15 @@ const ReportSummary = ({ report: { title, description, lang, url } }) => {
 
 const ProgrammingLanguages = ({ posts }) => {
   const [filteredPosts, filter] = useFilter(posts);
-  const searchKeywordsRef = useRef();
+  const [keywords, setKeywords] = useState('');
 
-  const handleOnChange = ({ target: { value } }) => filter(value || '');
+  const handleOnChange = ({ target: { value } }) => setKeywords(value || '');
+
+  const handleClear = () => setKeywords('');
+
+  useEffect(() => {
+    filter(keywords);
+  }, [keywords]);
 
   return (
     <div className="container max-w-6xl min-h-screen mx-auto">
@@ -55,18 +61,13 @@ const ProgrammingLanguages = ({ posts }) => {
               <input
                 className="absolute w-full py-3 pl-10 pr-10 font-medium text-gray-800 placeholder-gray-500 transition-all duration-300 bg-gray-200 border border-transparent rounded-lg shadow-sm focus:bg-white focus:border-gray-400 hover:border-gray-400 focus:outline-none"
                 placeholder="Intenta buscar seminarios (Título, contenido, etc.)"
-                ref={searchKeywordsRef}
                 type="text"
+                value={keywords}
                 onChange={handleOnChange}
               />
               <div className="absolute inset-y-0 right-0 z-10 flex items-center mr-3">
-                {searchKeywordsRef.current?.value && (
-                  <button
-                    type="button"
-                    onClick={() => {
-                      searchKeywordsRef.current.value = '';
-                    }}
-                  >
+                {keywords && (
+                  <button type="button" className="focus:outline-none" onClick={handleClear}>
                     <XIcon className="w-5 h-5 text-gray-600 stroke-2" />
                   </button>
                 )}
