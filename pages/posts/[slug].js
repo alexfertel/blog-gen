@@ -8,7 +8,7 @@ import markdownToHtml from '../../lib/markdownToHtml';
 import Layout from '../../components/reports/ReportLayout';
 import ReportHead from '../../components/reports/ReportHead';
 import ReportNavigation from '../../components/reports/ReportNavigation';
-import BreadcrumbNav from '../../components/BreadcrumbNav';
+import BreadcrumbNav from '../../components/shared/BreadcrumbNav';
 
 const ReportPage = ({ post: { title, content, nextSlug, prevSlug } }) => (
   <Layout>
