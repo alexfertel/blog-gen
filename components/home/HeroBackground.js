@@ -41,7 +41,6 @@ const useSketch = () => {
   const draw = (p5, rect) => {
     const c = p5.color('#3490DC');
     p5.background(c);
-    // console.log(clouds)
 
     // draw clouds
     clouds.forEach(cloud => {

@@ -16,7 +16,7 @@ function useClientRect() {
 
 const wr = p => p.resizeCanvas(p.windowWidth, p.windowHeight);
 
-const Sketch = ({ setup, draw, windowResized = wr, className, onRect }) => {
+const Sketch = ({ setup, draw, windowResized = wr, className, onRect = () => null}) => {
   const [rect, ref] = useClientRect();
   const canvasRef = useRef(null);
 
@@ -27,11 +27,11 @@ const Sketch = ({ setup, draw, windowResized = wr, className, onRect }) => {
         p.draw = () => draw(p, rect);
         p.windowResized = () => windowResized(p, rect);
       }, canvasRef.current);
-  }, [canvasRef.current]);
+  }, [rect]);
 
   useEffect(() => {
     if (rect !== null) onRect(rect);
-  }, ref.current);
+  }, [rect]);
 
   return (
     <div ref={ref} className={className}>
