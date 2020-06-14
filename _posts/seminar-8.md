@@ -6,7 +6,7 @@ lang: csharp
 url: seminar-8
 ---
 
-# Seminario 8 - DSL en C# 4.0
+## Seminario 8 - DSL en C# 4.0
 
 1. Un `DSL` interno (según Martin Fowler) es un lenguaje de dominio específico que se define a partir de un lenguaje de programación base mediante la utilización
    de sus características. Hay lenguajes de programación que brindan características específicas que facilitan la creación de pequeños `DSL`. Cuando el lenguaje
