@@ -1,22 +1,18 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 
-const baseStyles = 'w-full px-4 py-2 mt-4 text-base leading-6 transition-all duration-300 font-medium rounded focus:bg-white focus:outline-none';
-const cleanStyles = 'bg-gray-200 border border-gray-200 placeholder-gray-600 hover:border-blue-300 focus:border-blue-300';
-const errorStyles = '';
+const baseStyles =
+  'absolute w-full py-2 pl-4 pr-10 text-base bg-gray-200 leading-6 transition-all duration-300 font-medium rounded focus:bg-white focus:outline-none';
+const cleanStyles = 'border-2 border-gray-200 placeholder-gray-600 hover:border-blue-300 focus:border-blue-300';
+const errorStyles = 'border-2 border-red-200 placeholder-red-600 hover:border-red-300 focus:border-red-300';
 
-const Input = ({ registeredRef, placeholder, name, error }) => (
+const Input = ({ register, error, endIcon, ...other }) => (
   <div className="mt-4">
     <div className="relative flex items-center w-full h-12 max-w-3xl">
-      <input
-        ref={registeredRef}
-        className="absolute w-full py-2 pl-4 pr-10 font-medium leading-6 text-gray-800 placeholder-gray-600 transition-all duration-300 bg-gray-200 border border-gray-200 rounded focus:bg-white focus:border-blue-300 hover:border-blue-300 focus:outline-none"
-        placeholder={placeholder}
-        name={name}
-        autoComplete="off"
-        type='text'
-      />
+      <input ref={register} className={`${baseStyles} ${error ? errorStyles : cleanStyles}`} {...other} />
+      <div className="absolute inset-y-0 right-0 z-10 flex items-center mr-6">{endIcon}</div>
     </div>
-    {error && error.message}
+    <p className="text-xs font-medium leading-4 text-red-600">{error && error.message}</p>
   </div>
 );
 
