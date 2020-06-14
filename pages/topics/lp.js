@@ -59,7 +59,7 @@ const ProgrammingLanguages = ({ posts }) => {
               />
             </div>
           </div>
-          <div className="flex flex-wrap mt-10 -m-4">
+          <div className="flex flex-wrap mt-10 -m-4 overflow-y-hidden">
             <AnimatePresence>
               {filteredPosts.map(post => (
                 <motion.div
