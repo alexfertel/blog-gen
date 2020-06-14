@@ -12,19 +12,18 @@ Diseñe una jerarquía de clases en C++ que permita modelar las unidades y perso
 
 En este video-juegos existen 3 razas principales: **Terran**, **Protoss** y **Zerg**. Todas las unidades de cualquier raza tienen 3 valores enteros:
 
-   - _puntos de vida_
-   - _índice de ataque_
-   - _índice de defensa_.
+- _puntos de vida_
+- _índice de ataque_
+- _índice de defensa_.
 
 Los Protoss además poseen dos valores adicionales:
 
-   - Un valor que representa su escudo de protección.
-   - Un valor que representa cuánto escudo se regenera en un segundo.
+- Un valor que representa su escudo de protección.
+- Un valor que representa cuánto escudo se regenera en un segundo.
 
 Los Zerg por otro lado tienen:
 
-   - Un valor extra que representa cuánta vida regeneran en un segundo.
-
+- Un valor extra que representa cuánta vida regeneran en un segundo.
 
 1. Modele estos conceptos utilizando como clase base la mostrada en el código al final del ejercicio.
    Note que los constructores de las clases que no se deban poder instanciar deben ser _protected_.
@@ -49,11 +48,13 @@ public:
 ```
 
 2. Además de estas 3 razas, existen 2 adicionales que son mezclas de las anteriores:
-    - _Terran Infestados_ (**Terran** - **Zerg**)
-    - _Los Híbridos_ (**Protoss** - **Zerg**)
 
-    1. Modele esto utilizando herencia múltiple y _virtual_.
-    2. ¿Qué problemas trae la herencia múltiple con respecto a la representación en memoria de la herencia?
+   - _Terran Infestados_ (**Terran** - **Zerg**)
+   - _Los Híbridos_ (**Protoss** - **Zerg**)
+
+   1. Modele esto utilizando herencia múltiple y _virtual_.
+   2. ¿Qué problemas trae la herencia múltiple con respecto a la representación en memoria de la herencia?
+
 3. Algunas unidades del juego poseen habilidades o poderes (hasta un máximo de 3). Este tipo de unidad también tienen 2 valores adicionales:
 
    - Un entero que representa la energía que poseen para lanzar sus poderes.
@@ -68,7 +69,6 @@ public:
 Para modelar estos requisitos:
 
 1. Utilice la siguiente clase base para la jerarquía de los poderes:
-
 
 ```cpp
 class Power
@@ -98,7 +98,7 @@ protected:
    1. Genericidad con `templates`.
    2. Valores por defecto a los `templates`.
    3. Restricciones sobre los `templates`.
-4. Cómo se mencionó anteriormente, cada raza tiene unidades únicas o héroes, los cuales pueden poseer poderes especiales y de los cuales sólo puede existir una instancia.
+4. Como se mencionó anteriormente, cada raza tiene unidades únicas o héroes, los cuales pueden poseer poderes especiales y de los cuales sólo puede existir una instancia.
    1. Explicar el patrón _Singleton_.
 5. Implemente algunos ejemplos de poderes, unidades y héroes.
    1. Explicar la especialización de `templates`.
