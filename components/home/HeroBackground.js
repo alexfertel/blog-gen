@@ -1,74 +1,74 @@
-import React from 'react';
+import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
 
 const Sketch = dynamic(() => import('../Sketch'), { ssr: false });
 
 const useSketch = () => {
-  let disc = [];
+  let clouds = [];
+  const radius = 25;
 
-  const setup = (p5, ref) => {
-    const generateDisc = (center, lineCount) => {
-      const arcs = [];
-      for (let i = 0; i < lineCount; i++) {
-        const radius = p5.random(100, 2000);
-        const start = p5.random(360);
-        const stop = p5.random(30, 180);
-        const delta = p5.random(1) < 0.5 ? p5.random(0.1, 0.6) : p5.random(-0.6, -0.1);
-        arcs.push({
-          w: radius,
-          h: radius,
-          start,
-          stop,
-          delta,
-        });
-      }
-      return arcs;
-    };
-
+  const setup = (p5, rect) => {
     // eslint-disable-next-line no-param-reassign
     p5.disableFriendlyErrors = true;
-    p5.createCanvas(ref?.current.clientWidth || 0, ref?.current.clientHeight || 0);
+    p5.createCanvas(rect?.width || 0, rect?.height || 0);
     p5.colorMode(p5.HSL, 255);
     p5.angleMode(p5.DEGREES);
-    p5.strokeWeight(2);
+    p5.fill(255);
+    p5.noStroke();
 
-    disc = generateDisc({ x: 0, y: 0 }, 50);
+    let cloudCount = 40;
+    while (cloudCount-- > 0) {
+      let circles = p5.random(20, 40);
+      const cloud = [];
+      const centerX = p5.random(0, rect.width);
+      const centerY = p5.random(0, rect.height);
+      const speed = p5.random(0.1, .2);
+
+      while (circles-- > 0) {
+        cloud.push({
+          y: p5.random(centerY - 5, centerY + 5),
+          x: p5.random(centerX - 25, centerX + 25),
+          width: p5.random(radius - 15, radius),
+          height: p5.random(radius - 15, radius),
+          speed,
+        });
+      }
+
+      clouds.push(cloud);
+    }
   };
 
-  const draw = (p5, ref) => {
-    const drawArcs = arcs => {
-      return arcs.map(({ w, h, start, stop, delta }) => {
-        p5.push();
-        p5.rotate(start);
-        p5.arc(0, 0, w, h, 0, stop);
-        p5.pop();
-        return { w, h, start: start + delta, stop, delta };
-      });
-    };
-
-    p5.translate(ref?.current.clientWidth / 2 || 0, ref?.current.clientHeight / 2 || 0);
-
-    const c = p5.color('#3182ce');
+  const draw = (p5, rect) => {
+    const c = p5.color('#3490DC');
     p5.background(c);
+    // console.log(clouds)
 
-    p5.noFill();
+    // draw clouds
+    clouds.forEach(cloud => {
+      cloud.forEach(({ x, y, width, height }) => {
+        p5.ellipse(x, y, width, height);
+      });
+    });
 
-    p5.stroke(255);
-    disc = drawArcs(disc);
+    const wrap = (x, speed) => x > rect.width + 50 ? -50 : x + speed;
+
+    // move clouds
+    clouds = clouds.map(cloud =>
+      cloud.map(({ x, ...rest }) => ({ x: wrap(x, rest.speed), ...rest }))
+    );
   };
 
-  return [setup, draw];
+  const windowResized = (p, rect) => p.resizeCanvas(rect?.width || 0, rect?.height || 0);
+
+  return [setup, draw, windowResized];
 };
 
 const HeroBackground = ({ className }) => {
-  const [setup, draw] = useSketch();
+  const [, setRect] = useState({ width: 100, height: 100 });
+  const [setup, draw, windowResized] = useSketch();
+
   return (
-    <Sketch
-      className={className}
-      setup={setup}
-      draw={draw}
-      windowResized={(p, ref) => p.resizeCanvas(ref?.current.clientWidth || 0, ref?.current.clientHeight || 0)}
-    />
+    <Sketch onRect={r => setRect(r)} setup={setup} draw={draw} windowResized={windowResized} className={className} />
   );
 };
 
