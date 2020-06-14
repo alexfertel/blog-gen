@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getIcon } from '../../icons/utils';
 import { getAllPosts } from '../../lib/api';
-import useFilter from '../../hooks/useFilter';
+import filterPosts from '../../lib/filter';
 import { SearchIcon, XIcon } from '../../icons';
 
 const ReportSummary = ({ report: { title, description, lang, url } }) => {
@@ -24,16 +24,12 @@ const ReportSummary = ({ report: { title, description, lang, url } }) => {
 };
 
 const ProgrammingLanguages = ({ posts }) => {
-  const [filteredPosts, filter] = useFilter(posts);
-  const [keywords, setKeywords] = useState('');
+  const [keyWords, setKeyWords] = useState('');
 
-  const handleOnChange = ({ target: { value } }) => setKeywords(value || '');
+  const handleOnChange = ({ target: { value } }) => setKeyWords(value);
+  const handleClear = () => setKeyWords('');
 
-  const handleClear = () => setKeywords('');
-
-  useEffect(() => {
-    filter(keywords);
-  }, [keywords]);
+  const filteredPosts = filterPosts(posts, keyWords);
 
   return (
     <div className="container max-w-6xl min-h-screen mx-auto">
@@ -62,11 +58,11 @@ const ProgrammingLanguages = ({ posts }) => {
                 className="absolute w-full py-3 pl-10 pr-10 font-medium text-gray-800 placeholder-gray-500 transition-all duration-300 bg-gray-200 border border-transparent rounded-lg shadow-sm focus:bg-white focus:border-gray-400 hover:border-gray-400 focus:outline-none"
                 placeholder="Intenta buscar seminarios (Título, contenido, etc.)"
                 type="text"
-                value={keywords}
+                value={keyWords}
                 onChange={handleOnChange}
               />
               <div className="absolute inset-y-0 right-0 z-10 flex items-center mr-3">
-                {keywords && (
+                {keyWords && (
                   <button type="button" className="focus:outline-none" onClick={handleClear}>
                     <XIcon className="w-5 h-5 text-gray-600 stroke-2" />
                   </button>
