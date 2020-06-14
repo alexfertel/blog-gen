@@ -60,7 +60,7 @@ const ProgrammingLanguages = ({ posts }) => {
                 onChange={handleOnChange}
               />
               <div className="absolute inset-y-0 right-0 z-10 flex items-center mr-3">
-                {searchKeywordsRef.current.value && (
+                {searchKeywordsRef.current?.value && (
                   <button
                     type="button"
                     onClick={() => {
