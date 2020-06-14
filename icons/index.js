@@ -14,3 +14,4 @@ export { default as UserIcon } from './svgs/user.svg';
 export { default as EyeIcon } from './svgs/eye.svg';
 export { default as EyeOffIcon } from './svgs/eye-off.svg';
 export { default as SearchIcon } from './svgs/search.svg';
+export { default as XIcon } from './svgs/x.svg';
