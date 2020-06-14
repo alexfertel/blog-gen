@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import _ from 'lodash';
-import ascend from 'ramda/src/ascend';
 import descend from 'ramda/src/descend';
 import prop from 'ramda/src/prop';
 import compose from 'ramda/src/compose';
