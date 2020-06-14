@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getIcon } from '../../icons/utils';
 import { getAllPosts } from '../../lib/api';
-import useFilter from '../../hooks/useFilter';
-import { SearchIcon } from '../../icons';
+import filterPosts from '../../lib/filter';
+import { SearchIcon, XIcon } from '../../icons';
 
 const ReportSummary = ({ report: { title, description, lang, url } }) => {
   const Icon = getIcon(lang);
   return (
     <Link href={`/posts/${url}`}>
-      <div className="p-6 transition-shadow transition-transform duration-300 transform bg-white rounded-lg shadow-sm cursor-pointer hover:scale-105 hover:shadow-lg">
+      <div className="p-6 transition-all duration-300 transform bg-white rounded-lg shadow-sm cursor-pointer hover:scale-105 hover:shadow-lg">
         <div className="flex items-center justify-between w-full">
           <h2 className="text-xl font-medium text-gray-800">{title}</h2>
           <div className="inline-flex items-center justify-center text-blue-500 rounded-full">
@@ -24,9 +24,12 @@ const ReportSummary = ({ report: { title, description, lang, url } }) => {
 };
 
 const ProgrammingLanguages = ({ posts }) => {
-  const [filteredPosts, filter] = useFilter(posts);
+  const [keyWords, setKeyWords] = useState('');
 
-  const handleOnChange = ({ target: { value } }) => filter(value || '');
+  const handleOnChange = ({ target: { value } }) => setKeyWords(value);
+  const handleClear = () => setKeyWords('');
+
+  const filteredPosts = filterPosts(posts, keyWords);
 
   return (
     <div className="container max-w-6xl min-h-screen mx-auto">
@@ -52,14 +55,22 @@ const ProgrammingLanguages = ({ posts }) => {
                 <SearchIcon className="w-5 h-5 text-gray-500 stroke-2" />
               </div>
               <input
-                className="absolute w-full py-3 pl-10 pr-4 font-medium text-gray-800 placeholder-gray-500 transition-all duration-300 bg-gray-200 border border-transparent rounded-lg shadow-sm focus:bg-white focus:border-gray-400 hover:border-gray-400 focus:outline-none"
+                className="absolute w-full py-3 pl-10 pr-10 font-medium text-gray-800 placeholder-gray-500 transition-all duration-300 bg-gray-200 border border-transparent rounded-lg shadow-sm focus:bg-white focus:border-gray-400 hover:border-gray-400 focus:outline-none"
                 placeholder="Intenta buscar seminarios (Título, contenido, etc.)"
                 type="text"
+                value={keyWords}
                 onChange={handleOnChange}
               />
+              <div className="absolute inset-y-0 right-0 z-10 flex items-center mr-3">
+                {keyWords && (
+                  <button type="button" className="focus:outline-none" onClick={handleClear}>
+                    <XIcon className="w-5 h-5 text-gray-600 stroke-2" />
+                  </button>
+                )}
+              </div>
             </div>
           </div>
-          <div className="flex flex-wrap mt-10 -m-4">
+          <div className="flex flex-wrap mt-10 -m-4 overflow-y-hidden">
             <AnimatePresence>
               {filteredPosts.map(post => (
                 <motion.div

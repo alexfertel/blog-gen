@@ -15,16 +15,18 @@ export default function AuthenticationSection({ isLogin }) {
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
+      .then(result => console.log('createUser', result))
       .catch(error => {
-        setError(error);
+        setError(error?.message || 'Unexpected error!');
       });
 
   const loginUser = ({ email, password }) =>
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
+      .then(result => console.log('loginUser', result))
       .catch(error => {
-        setError(error);
+        setError(error?.message || 'Unexpected error!');
       });
 
   const Fields = withAnimation(isLogin ? LoginFields : RegisterFields);
@@ -44,6 +46,8 @@ export default function AuthenticationSection({ isLogin }) {
       </a>
     </div>
   ));
+
+  console.log(errors);
 
   return (
     <section className="relative flex w-full text-gray-700 bg-blue-500">

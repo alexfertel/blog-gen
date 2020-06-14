@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
 
-const Sketch = dynamic(() => import('../Sketch'), { ssr: false });
+const Sketch = dynamic(() => import('../shared/Sketch'), { ssr: false });
 
 const useSketch = () => {
   let clouds = [];
@@ -41,7 +41,6 @@ const useSketch = () => {
   const draw = (p5, rect) => {
     const c = p5.color('#3490DC');
     p5.background(c);
-    // console.log(clouds)
 
     // draw clouds
     clouds.forEach(cloud => {
