@@ -2,13 +2,13 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
-import mdStyles from '../../styles/md.module.css';
-import { getPostBySlug, getAllPosts, getNextPostSlug, getPreviousPostSlug } from '../../lib/api';
-import markdownToHtml from '../../lib/markdownToHtml';
-import Layout from '../../components/reports/ReportLayout';
-import ReportHead from '../../components/reports/ReportHead';
-import ReportNavigation from '../../components/reports/ReportNavigation';
-import BreadcrumbNav from '../../components/shared/BreadcrumbNav';
+import mdStyles from '../../../styles/md.module.css';
+import { getPostBySlug, getAllPosts, getNextPostSlug, getPreviousPostSlug } from '../../../lib/api';
+import markdownToHtml from '../../../lib/markdownToHtml';
+import Layout from '../../../components/reports/ReportLayout';
+import ReportHead from '../../../components/reports/ReportHead';
+import ReportNavigation from '../../../components/reports/ReportNavigation';
+import BreadcrumbNav from '../../../components/shared/BreadcrumbNav';
 
 const ReportPage = ({ post: { title, content, nextSlug, prevSlug } }) => (
   <Layout>
