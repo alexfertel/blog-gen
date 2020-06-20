@@ -9,12 +9,14 @@ const Topics = ({ topics }) => (
       {topics ? (
         topics.map(({ name, description, author, postsCount, link }) => (
           <div key={link} className="py-8 px-5 mt-4 mx-auto flex border-t-2 border-gray-200 flex-wrap md:flex-no-wrap">
-            <div className="md:w-64 flex-shrink-0 flex flex-col">
-              <span className="tracking-widest font-medium title-font text-gray-900">{author}</span>
+            <div className="w-full md:w-64 flex-shrink-0 flex flex-col">
+              <span className="tracking-widest font-medium title-font text-gray-900 break-words">{author}</span>
               <span className="mt-1 text-gray-500 text-sm">{`${postsCount} Posts`}</span>
             </div>
-            <div className="mt-4 md:mt-0 md:flex-grow">
-              <h2 className="text-xl md:text-2xl font-medium text-gray-900 title-font mb-2">{name}</h2>
+            <div className="w-full mt-4 md:mt-0 md:flex-grow">
+              <h2 className="text-xl md:text-2xl font-medium text-gray-900 title-font mb-2 break-words w-full">
+                {name}
+              </h2>
               <p className="leading-relaxed">{description}</p>
               <Link href={link}>
                 <a
