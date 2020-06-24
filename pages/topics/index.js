@@ -1,56 +1,38 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { RightArrowIcon, SearchIcon, XIcon } from '../../icons/index';
+import { RightArrowIcon } from '../../icons/index';
+import SearchBar from '../../components/shared/SearchBar';
+
+const TopicSummary = ({ topic: { name, description, postsCount, link } }) => (
+  <div key={link} className="flex flex-wrap px-5 py-8 mx-auto mt-4 border-t-2 border-gray-200 md:flex-no-wrap">
+    <div className="flex flex-col flex-shrink-0 w-full md:w-32">
+      <span className="mt-1 text-sm text-gray-500">{`${postsCount} Posts`}</span>
+    </div>
+    <div className="w-full mt-4 md:mt-0 md:flex-grow">
+      <h2 className="w-full mb-2 text-xl font-medium text-gray-900 break-words md:text-2xl title-font">{name}</h2>
+      <p className="leading-relaxed">{description}</p>
+      <Link href={link}>
+        <a className="inline-flex items-center mt-4 font-medium text-blue-500 transition-colors duration-300 hover:text-blue-800">
+          Explorar
+          <RightArrowIcon className="w-4 h-4 ml-1" />
+        </a>
+      </Link>
+    </div>
+  </div>
+);
 
 const Topics = ({ topics }) => {
   const [keywords, setKeywords] = useState('');
 
+  const handleOnChange = ({ target: { value } }) => setKeywords(value);
+
   return (
-    <section className="container text-gray-700 px-8 py-10 min-h-screen mx-auto">
-      <h1 className="mt-10 text-3xl sm:text-4xl font-medium text-gray-900 text-center">Temas</h1>
-      <div className="flex justify-center mt-10">
-        <div className="relative flex items-center w-full h-12 max-w-3xl">
-          <div className="absolute inset-y-0 left-0 z-10 flex items-center ml-3">
-            <SearchIcon className="w-5 h-5 text-gray-500 stroke-2" />
-          </div>
-          <input
-            className="absolute w-full py-3 pl-10 pr-10 font-medium text-gray-800 placeholder-gray-500 transition-all duration-300 bg-gray-200 border border-transparent rounded-lg shadow-sm focus:bg-white focus:border-gray-400 hover:border-gray-400 focus:outline-none"
-            placeholder="Intenta buscar temas"
-            type="text"
-            value={keywords}
-            onChange={({ target: { value } }) => setKeywords(value)}
-          />
-          <div className="absolute inset-y-0 right-0 z-10 flex items-center mr-3">
-            {keywords && (
-              <button type="button" className="focus:outline-none" onClick={() => setKeywords('')}>
-                <XIcon className="w-5 h-5 text-gray-600 stroke-2" />
-              </button>
-            )}
-          </div>
-        </div>
-      </div>
+    <section className="container min-h-screen px-8 py-10 mx-auto text-gray-700">
+      <h1 className="mt-10 text-3xl font-medium text-center text-gray-900 sm:text-4xl">Temas</h1>
+      <SearchBar value={keywords} onChange={handleOnChange} />
       <div className="mt-16">
-        {topics.map(({ name, description, postsCount, link }) => (
-          <div key={link} className="py-8 px-5 mt-4 mx-auto flex border-t-2 border-gray-200 flex-wrap md:flex-no-wrap">
-            <div className="w-full md:w-32 flex-shrink-0 flex flex-col">
-              <span className="mt-1 text-gray-500 text-sm">{`${postsCount} Posts`}</span>
-            </div>
-            <div className="w-full mt-4 md:mt-0 md:flex-grow">
-              <h2 className="text-xl md:text-2xl font-medium text-gray-900 title-font mb-2 break-words w-full">
-                {name}
-              </h2>
-              <p className="leading-relaxed">{description}</p>
-              <Link href={link}>
-                <a
-                  className="mt-4 text-blue-500 font-medium inline-flex items-center 
-                  hover:text-blue-800 transition-colors duration-300"
-                >
-                  Explorar
-                  <RightArrowIcon className="w-4 h-4 ml-1" />
-                </a>
-              </Link>
-            </div>
-          </div>
+        {topics.map(topic => (
+          <TopicSummary topic={topic} />
         ))}
       </div>
     </section>
