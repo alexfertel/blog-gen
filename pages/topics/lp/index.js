@@ -9,7 +9,7 @@ import { SearchIcon, XIcon } from '../../../icons';
 const ReportSummary = ({ report: { title, description, lang, url } }) => {
   const Icon = getIcon(lang);
   return (
-    <Link href={`/posts/${url}`}>
+    <Link href={`/topics/lp/${url}`}>
       <div className="p-6 transition-all duration-300 transform bg-white rounded-lg shadow-sm cursor-pointer hover:scale-105 hover:shadow-lg">
         <div className="flex items-center justify-between w-full">
           <h2 className="text-xl font-medium text-gray-800">{title}</h2>
