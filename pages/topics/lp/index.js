@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getIcon } from '../../../icons/utils';
 import { getAllPosts } from '../../../lib/api';
-import filterPosts from '../../../lib/filter';
+import { filterPosts } from '../../../lib/filter';
 import { SearchIcon, XIcon } from '../../../icons';
 
 const ReportSummary = ({ report: { title, description, lang, url } }) => {
