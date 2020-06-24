@@ -1,7 +1,7 @@
 import React from 'react';
 import { SearchIcon, XIcon } from '../../icons/index';
 
-const SearchBar = ({ value, onChange }) => (
+const SearchBar = ({ value, onChange, onClear }) => (
   <div className="flex justify-center mt-8">
     <div className="relative flex items-center w-full h-12 max-w-3xl">
       <div className="absolute inset-y-0 left-0 z-10 flex items-center ml-3">
@@ -16,7 +16,7 @@ const SearchBar = ({ value, onChange }) => (
       />
       <div className="absolute inset-y-0 right-0 z-10 flex items-center mr-3">
         {value && (
-          <button type="button" className="focus:outline-none">
+          <button type="button" className="focus:outline-none" onClick={onClear}>
             <XIcon className="w-5 h-5 text-gray-600 stroke-2" />
           </button>
         )}

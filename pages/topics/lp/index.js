@@ -27,6 +27,7 @@ const ProgrammingLanguages = ({ posts }) => {
   const [keyWords, setKeyWords] = useState('');
 
   const handleOnChange = ({ target: { value } }) => setKeyWords(value);
+  const handleOnClear = () => setKeyWords('');
 
   const filteredPosts = filterPosts(posts, keyWords);
 
@@ -48,7 +49,7 @@ const ProgrammingLanguages = ({ posts }) => {
               </a>
             </p>
           </div>
-          <SearchBar value={keyWords} onChange={handleOnChange} />
+          <SearchBar value={keyWords} onChange={handleOnChange} onClear={handleOnClear} />
           <div className="flex flex-wrap mt-10 -m-4 overflow-y-hidden">
             <AnimatePresence>
               {filteredPosts.map(post => (

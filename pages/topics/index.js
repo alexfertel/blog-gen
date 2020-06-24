@@ -5,7 +5,7 @@ import SearchBar from '../../components/shared/SearchBar';
 import { filterTopics } from '../../lib/filter';
 
 const TopicSummary = ({ topic: { name, description, postsCount, link } }) => (
-  <div key={link} className="flex flex-wrap px-5 py-8 mx-auto mt-4 border-t-2 border-gray-200 md:flex-no-wrap">
+  <div className="flex flex-wrap px-5 py-8 mx-auto mt-4 border-t-2 border-gray-200 md:flex-no-wrap">
     <div className="flex flex-col flex-shrink-0 w-full md:w-32">
       <span className="mt-1 text-sm text-gray-500">{`${postsCount} Posts`}</span>
     </div>
@@ -26,16 +26,17 @@ const Topics = ({ topics }) => {
   const [keywords, setKeywords] = useState('');
 
   const handleOnChange = ({ target: { value } }) => setKeywords(value);
+  const handleOnClear = () => setKeywords('');
 
   const filteredTopics = filterTopics(topics, keywords);
 
   return (
     <section className="container min-h-screen px-8 py-10 mx-auto text-gray-700">
       <h1 className="mt-10 text-3xl font-medium text-center text-gray-900 sm:text-4xl">Temas</h1>
-      <SearchBar value={keywords} onChange={handleOnChange} />
+      <SearchBar value={keywords} onChange={handleOnChange} onClear={handleOnClear} />
       <div className="mt-16">
         {filteredTopics.map(topic => (
-          <TopicSummary topic={topic} />
+          <TopicSummary key={topic.link} topic={topic} />
         ))}
       </div>
     </section>
