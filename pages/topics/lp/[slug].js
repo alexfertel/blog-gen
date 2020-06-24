@@ -12,7 +12,12 @@ import BreadcrumbNav from '../../../components/shared/BreadcrumbNav';
 
 const ReportPage = ({ post: { title, content, nextSlug, prevSlug } }) => (
   <Layout>
-    <BreadcrumbNav postTitle={title} />
+    <BreadcrumbNav
+      links={[
+        ['alexfertel', '#'],
+        [title, ''],
+      ]}
+    />
     <div className={mdStyles.markdown}>
       <h2 className="text-3xl font-semibold text-center text-gray-800">{title}</h2>
       <ReportHead />
