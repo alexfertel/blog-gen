@@ -5,6 +5,7 @@ import { getIcon } from '../../../icons/utils';
 import { getAllPosts } from '../../../lib/api';
 import { filterPosts } from '../../../lib/filter';
 import SearchBar from '../../../components/shared/SearchBar';
+import BreadcrumbNav from '../../../components/shared/BreadcrumbNav';
 
 const ReportSummary = ({ report: { title, description, lang, url } }) => {
   const Icon = getIcon(lang);
@@ -34,8 +35,9 @@ const ProgrammingLanguages = ({ posts }) => {
   return (
     <div className="container max-w-6xl min-h-screen mx-auto">
       <section className="text-gray-700">
-        <div className="container px-5 py-24 mx-auto">
-          <div className="flex flex-col flex-wrap items-center w-full text-center">
+        <div className="container px-5 py-10 mx-auto">
+          <BreadcrumbNav links={[['Topics', '/topics'], ['Lenguajes de Programación']]} />
+          <div className="flex flex-col flex-wrap items-center w-full mt-12 text-center">
             <h1 className="mb-2 text-2xl font-medium text-gray-900 sm:text-3xl">
               Seminarios de Lenguajes de Programación
             </h1>
