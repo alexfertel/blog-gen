@@ -18,7 +18,7 @@ const BreadcrumbNav = ({ links }) => (
           <ChevronRightIcon className="h-3 text-gray-500 sm:mx-1" />
         </li>
         {links.slice(0, -1).map(([text, link]) => (
-          <li className="flex items-center">
+          <li key={link} className="flex items-center">
             <Breadcrumb href={link} text={text} />
             <ChevronRightIcon className="h-3 text-gray-500 sm:mx-1" />
           </li>
