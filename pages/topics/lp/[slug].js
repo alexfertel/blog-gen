@@ -2,17 +2,22 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
-import mdStyles from '../../styles/md.module.css';
-import { getPostBySlug, getAllPosts, getNextPostSlug, getPreviousPostSlug } from '../../lib/api';
-import markdownToHtml from '../../lib/markdownToHtml';
-import Layout from '../../components/reports/ReportLayout';
-import ReportHead from '../../components/reports/ReportHead';
-import ReportNavigation from '../../components/reports/ReportNavigation';
-import BreadcrumbNav from '../../components/shared/BreadcrumbNav';
+import mdStyles from '../../../styles/md.module.css';
+import { getPostBySlug, getAllPosts, getNextPostSlug, getPreviousPostSlug } from '../../../lib/api';
+import markdownToHtml from '../../../lib/markdownToHtml';
+import Layout from '../../../components/reports/ReportLayout';
+import ReportHead from '../../../components/reports/ReportHead';
+import ReportNavigation from '../../../components/reports/ReportNavigation';
+import BreadcrumbNav from '../../../components/shared/BreadcrumbNav';
 
 const ReportPage = ({ post: { title, content, nextSlug, prevSlug } }) => (
   <Layout>
-    <BreadcrumbNav postTitle={title} />
+    <BreadcrumbNav
+      links={[
+        ['alexfertel', '#'],
+        [title, ''],
+      ]}
+    />
     <div className={mdStyles.markdown}>
       <h2 className="text-3xl font-semibold text-center text-gray-800">{title}</h2>
       <ReportHead />
